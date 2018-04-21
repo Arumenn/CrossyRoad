@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3312594}
   - component: {fileID: 2350522}
   - component: {fileID: 95069680155892568}
+  - component: {fileID: 114080594552548254}
   m_Layer: 0
   m_Name: chick
   m_TagString: Untagged
@@ -45,6 +46,7 @@ GameObject:
   - component: {fileID: 489146}
   - component: {fileID: 6527204}
   - component: {fileID: 5454260}
+  - component: {fileID: 114479508103489618}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3604,3 +3606,35 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114080594552548254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a370f2519faf00a47a6f50d431e0e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114479508103489618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b156b8821bcb8ee41a17e7335620dfce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 1
+  moveTime: 0.4
+  colliderDistCheck: 1
+  isDead: 0
+  isIdle: 1
+  isMoving: 0
+  jumpStart: 0
+  isJumping: 0
+  particle: {fileID: 19850840}
+  chick: {fileID: 106224}
