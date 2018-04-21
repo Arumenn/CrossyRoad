@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 476552}
   - component: {fileID: 3312594}
   - component: {fileID: 2350522}
+  - component: {fileID: 95069680155892568}
   m_Layer: 0
   m_Name: chick
   m_TagString: Untagged
@@ -84,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.24, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 476552}
@@ -220,7 +221,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 0
+  randomSeed: -1317055569
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3586,3 +3587,20 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114832}
   m_IsPrefabParent: 1
+--- !u!95 &95069680155892568
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106224}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 94ebe12678eb588418eb54101d15d14e, type: 3}
+  m_Controller: {fileID: 9100000, guid: c4f568f734d533d40b2e83fb25d749ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
