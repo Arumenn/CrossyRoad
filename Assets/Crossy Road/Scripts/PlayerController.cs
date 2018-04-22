@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update() {
-        //TODO Manager -> CanPlay()
+        if (!Manager.GetInstance.CanPlay()) { return; }
         if (isDead) { return; }
 
         CanIdle();
@@ -58,7 +58,6 @@ public class PlayerController : MonoBehaviour
     }
 
     private void SetMove() {
-        Debug.Log("Hit nothing. Keep moving.");
         isIdle = false;
         isMoving = true;
         jumpStart = true;
@@ -95,7 +94,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void SetMoveForwardState() {
-
+        Manager.GetInstance.UpdateDistanceCount();
     }
 
     private void IsVisible() {
@@ -113,6 +112,6 @@ public class PlayerController : MonoBehaviour
         ParticleSystem.EmissionModule em = particle.emission;
         em.enabled = true;
 
-        //TODO Manager => GameOver()
+        Manager.GetInstance.GameOver();
     }
 }

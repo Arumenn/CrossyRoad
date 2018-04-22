@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
             Debug.Log("Player picked up Coin");
-            //TODO Manager => update coin count
+            Manager.GetInstance.UpddateCoinCount(coinValue);
 
             Destroy(this.gameObject);
         }
