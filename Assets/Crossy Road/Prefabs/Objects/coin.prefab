@@ -9,8 +9,8 @@ GameObject:
   m_Component:
   - component: {fileID: 469236}
   - component: {fileID: 6584552}
-  - component: {fileID: 11474844}
   - component: {fileID: 8222480}
+  - component: {fileID: 114144633706426362}
   m_Layer: 0
   m_Name: coin
   m_TagString: Untagged
@@ -44,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.25, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 491900}
@@ -220,7 +220,7 @@ Animator:
   m_GameObject: {fileID: 187180}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3f3fadcb10289f149b8a178ce88225f2, type: 2}
+  m_Controller: {fileID: 9100000, guid: d6dd18684d11fdf4d83bb31aaecd5673, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -228,20 +228,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11474844
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fcacf9a6651f784abd639c993fa301d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinValue: 1
-  coin: {fileID: 187180}
-  audioClip: {fileID: 8300000, guid: 0a55514c5eef7264bb11b07d56dcff30, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -289,3 +275,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 172592}
   m_IsPrefabParent: 1
+--- !u!114 &114144633706426362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a95c9a7adfbcbd4a8c62a320500b4f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinValue: 1
