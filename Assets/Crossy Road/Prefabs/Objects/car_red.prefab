@@ -26,7 +26,7 @@ GameObject:
   m_Component:
   - component: {fileID: 466020}
   - component: {fileID: 6503864}
-  - component: {fileID: 11424440}
+  - component: {fileID: 114757487480700650}
   m_Layer: 0
   m_Name: car_red
   m_TagString: Untagged
@@ -114,22 +114,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1448468, y: 0.65414083, z: 0.6275368}
   m_Center: {x: 0.007390201, y: 0.33255678, z: 0.0029559135}
---- !u!114 &11424440
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 124906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35f3593c6d1cb94fa9e4427cf5b837f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  moveDirection: 0
-  parentOnTrigger: 0
-  hitBoxOnTrigger: 1
-  moverObject: {fileID: 107598}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -173,3 +157,19 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 124906}
   m_IsPrefabParent: 1
+--- !u!114 &114757487480700650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c100865cac5cc4c8ed70864b74fe4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  moveDirection: 0
+  parentOnTrigger: 0
+  hitBoxOnTrigger: 1
+  moverObject: {fileID: 107598}

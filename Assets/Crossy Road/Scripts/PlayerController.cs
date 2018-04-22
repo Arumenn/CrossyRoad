@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
     private Renderer _renderer = null;
     private bool isVisible = false;
 
-    void Start() {
+    private void Start() {
         _renderer = chick.GetComponent<Renderer>();
     }
 
-    void Update() {
+    private void Update() {
         //TODO Manager -> CanPlay()
         if (isDead) { return; }
 
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         IsVisible();
     }
 
-    void CanIdle() {
+    private void CanIdle() {
         if (isIdle) {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) {
                 CheckIfCanMove();
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void CheckIfCanMove() {
+    private void CheckIfCanMove() {
         //raycast - find if there's any collider box in front of player
         RaycastHit hit;
         Physics.Raycast(this.transform.position, -chick.transform.up, out hit, colliderDistCheck);
@@ -57,14 +57,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void SetMove() {
+    private void SetMove() {
         Debug.Log("Hit nothing. Keep moving.");
         isIdle = false;
         isMoving = true;
         jumpStart = true;
     }
 
-    void CanMove() {
+    private void CanMove() {
         if (isMoving) {
             if (Input.GetKeyUp(KeyCode.UpArrow)) {
                 Move(new Vector3(transform.position.x, transform.position.y, transform.position.z + moveDistance));
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Move(Vector3 pos) {
+    private void Move(Vector3 pos) {
         isIdle = false;
         isMoving = false;
         isJumping = true;
@@ -87,18 +87,18 @@ public class PlayerController : MonoBehaviour
         LeanTween.move(this.gameObject, pos, moveTime).setOnComplete(MoveComplete);
     }
 
-    void MoveComplete() {
+    private void MoveComplete() {
         isIdle = true;
         isMoving = false;
         isJumping = false;
         jumpStart = false;
     }
 
-    void SetMoveForwardState() {
+    private void SetMoveForwardState() {
 
     }
 
-    void IsVisible() {
+    private void IsVisible() {
         if (_renderer.isVisible) { isVisible = true; }
 
         if (!_renderer.isVisible && isVisible) {

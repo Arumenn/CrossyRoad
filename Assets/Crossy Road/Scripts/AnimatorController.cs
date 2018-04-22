@@ -8,11 +8,11 @@ public class AnimatorController : MonoBehaviour
 
     private Animator animator = null;
 
-    void Start() {
+    private void Start() {
         animator = this.GetComponent<Animator>();
     }
 
-    void Update() {
+    private void Update() {
         if (playerController.isDead) {
             animator.SetBool("dead", true);
         }
@@ -24,5 +24,12 @@ public class AnimatorController : MonoBehaviour
             animator.SetBool("jumpStart", false);
             animator.SetBool("jump", false);
         }
+
+        if (!playerController.isIdle) { return; }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow)) { this.transform.rotation = Quaternion.Euler(270f, 0, 0); }
+        if (Input.GetKeyDown(KeyCode.DownArrow)) { this.transform.rotation = Quaternion.Euler(270f, 180f, 0); }
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) { this.transform.rotation = Quaternion.Euler(270f, -90f, 0); }
+        if (Input.GetKeyDown(KeyCode.RightArrow)) { this.transform.rotation = Quaternion.Euler(270f, 90f, 0); }
     }
 }

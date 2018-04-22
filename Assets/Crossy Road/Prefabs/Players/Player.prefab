@@ -3630,7 +3630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 1
-  moveTime: 0.4
+  moveTime: 0.2
   colliderDistCheck: 1
   isDead: 0
   isIdle: 1
