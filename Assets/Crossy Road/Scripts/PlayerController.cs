@@ -19,13 +19,17 @@ public class PlayerController : MonoBehaviour
     private bool isVisible = false;
 
     void Start() {
-        
+        renderer = chick.GetComponent<Renderer>();
     }
 
     void Update() {
+        //TODO Manager -> CanPlay()
+        if (isDead) { return; }
+
         CanIdle();
         CanMove();
 
+        IsVisible();
     }
 
     void CanIdle() {
@@ -95,10 +99,20 @@ public class PlayerController : MonoBehaviour
     }
 
     void IsVisible() {
+        if (renderer.isVisible) { isVisible = true; }
 
+        if (!renderer.isVisible && isVisible) {
+            Debug.Log("Player is off screen. Dies");
+            GotHit();
+        }
     }
 
     public void GotHit() {
+        isDead = true;
+        isIdle = false;
+        ParticleSystem.EmissionModule em = particle.emission;
+        em.enabled = true;
 
+        //TODO Manager => GameOver()
     }
 }
