@@ -15,11 +15,11 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem particle = null;
     public GameObject chick = null;
 
-    private Renderer renderer = null;
+    private Renderer _renderer = null;
     private bool isVisible = false;
 
     void Start() {
-        renderer = chick.GetComponent<Renderer>();
+        _renderer = chick.GetComponent<Renderer>();
     }
 
     void Update() {
@@ -99,9 +99,9 @@ public class PlayerController : MonoBehaviour
     }
 
     void IsVisible() {
-        if (renderer.isVisible) { isVisible = true; }
+        if (_renderer.isVisible) { isVisible = true; }
 
-        if (!renderer.isVisible && isVisible) {
+        if (!_renderer.isVisible && isVisible) {
             Debug.Log("Player is off screen. Dies");
             GotHit();
         }
