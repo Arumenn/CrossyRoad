@@ -26,7 +26,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430040}
   - component: {fileID: 6514636}
-  - component: {fileID: 11437644}
+  - component: {fileID: 114646212228627814}
   m_Layer: 0
   m_Name: logMedium
   m_TagString: Untagged
@@ -114,22 +114,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11437644
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 171626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35f3593c6d1cb94fa9e4427cf5b837f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  moveDirection: 0
-  parentOnTrigger: 1
-  hitBoxOnTrigger: 0
-  moverObject: {fileID: 128792}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -153,3 +137,19 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171626}
   m_IsPrefabParent: 1
+--- !u!114 &114646212228627814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c100865cac5cc4c8ed70864b74fe4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  moveDirection: 0
+  parentOnTrigger: 1
+  hitBoxOnTrigger: 0
+  moverObject: {fileID: 128792}
