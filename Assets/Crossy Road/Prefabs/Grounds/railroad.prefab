@@ -28,7 +28,6 @@ GameObject:
   - component: {fileID: 3374858}
   - component: {fileID: 6583406}
   - component: {fileID: 2389946}
-  - component: {fileID: 11420792}
   - component: {fileID: 5450134}
   m_Layer: 0
   m_Name: trafficLight (1)
@@ -65,7 +64,6 @@ GameObject:
   - component: {fileID: 3399186}
   - component: {fileID: 6532830}
   - component: {fileID: 2381732}
-  - component: {fileID: 11432908}
   - component: {fileID: 5411338}
   m_Layer: 0
   m_Name: trafficLight
@@ -150,7 +148,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 463986}
-  - component: {fileID: 11411336}
+  - component: {fileID: 114899415160363624}
   m_Layer: 0
   m_Name: spawnController
   m_TagString: Untagged
@@ -216,7 +214,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 407262}
-  - component: {fileID: 11479000}
+  - component: {fileID: 114989306628954716}
   m_Layer: 0
   m_Name: spawnLeft
   m_TagString: Untagged
@@ -235,7 +233,6 @@ GameObject:
   - component: {fileID: 3377750}
   - component: {fileID: 6576790}
   - component: {fileID: 2343248}
-  - component: {fileID: 11452554}
   - component: {fileID: 5457420}
   m_Layer: 0
   m_Name: trafficLight (1)
@@ -317,7 +314,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 440820}
-  - component: {fileID: 11453320}
+  - component: {fileID: 114185462093729342}
   m_Layer: 0
   m_Name: spawnRight
   m_TagString: Untagged
@@ -441,7 +438,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 438328}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &433292
 Transform:
@@ -480,8 +477,8 @@ Transform:
   m_LocalScale: {x: 0.006, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 442102}
-  - {fileID: 456758}
   - {fileID: 432738}
+  - {fileID: 456758}
   m_Father: {fileID: 409302}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -551,7 +548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 438328}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &458674
 Transform:
@@ -1308,110 +1305,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &11411336
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b681f6982b6911a4a97710ae1a19a3ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goLeft: 0
-  goRight: 0
-  items:
-  - {fileID: 179956, guid: 17392426b6b1daf4289ecf88ac5be484, type: 2}
-  - {fileID: 151708, guid: b744b5c57a4c5c24b8c64a24a081fdf6, type: 2}
-  - {fileID: 176312, guid: cd7ccbdab9660cd4e8c053de8140459f, type: 2}
-  - {fileID: 192736, guid: e75094eefb6155e4da6b487307f7463c, type: 2}
-  spawnersLeft:
-  - {fileID: 11479000}
-  spawnersRight:
-  - {fileID: 11453320}
---- !u!114 &11420792
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a2c6d4748512243a24818e2e54e66e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  light: {fileID: 176258}
---- !u!114 &11432908
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 124000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a2c6d4748512243a24818e2e54e66e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  light: {fileID: 193030}
---- !u!114 &11452554
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a2c6d4748512243a24818e2e54e66e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  light: {fileID: 184264}
---- !u!114 &11453320
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 186720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d713bb2e1275745a63218fd889f350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPos: {fileID: 440820}
-  delayMin: 2.5
-  delayMax: 7
-  speedMin: 2.5
-  speedMax: 10
-  useSpawnPlacement: 0
-  spawnCountMin: 4
-  spawnCountMax: 20
-  item: {fileID: 0}
-  goLeft: 0
-  spawnLeftPos: 0
-  spawnRightPos: 0
---- !u!114 &11479000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d713bb2e1275745a63218fd889f350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPos: {fileID: 407262}
-  delayMin: 2.5
-  delayMax: 7
-  speedMin: 2.5
-  speedMax: 10
-  useSpawnPlacement: 0
-  spawnCountMin: 4
-  spawnCountMax: 20
-  item: {fileID: 0}
-  goLeft: 0
-  spawnLeftPos: 0
-  spawnRightPos: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -1443,3 +1336,70 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135800}
   m_IsPrefabParent: 1
+--- !u!114 &114185462093729342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a579a32f29a14a97cefecb10a3a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {fileID: 440820}
+  delayMin: 2.5
+  delayMax: 7
+  speedMin: 2.5
+  speedMax: 8
+  useSpawnPlacement: 0
+  spawnCountMin: 4
+  spawnCountMax: 20
+  item: {fileID: 0}
+  goLeft: 0
+  spawnLeftPos: 0
+  spawnRightPos: 0
+--- !u!114 &114899415160363624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ac328051566b44fa3462d21eb11db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goLeft: 0
+  items:
+  - {fileID: 176312, guid: cd7ccbdab9660cd4e8c053de8140459f, type: 2}
+  - {fileID: 151708, guid: b744b5c57a4c5c24b8c64a24a081fdf6, type: 2}
+  - {fileID: 192736, guid: e75094eefb6155e4da6b487307f7463c, type: 2}
+  - {fileID: 179956, guid: 17392426b6b1daf4289ecf88ac5be484, type: 2}
+  spawnersLeft:
+  - {fileID: 114989306628954716}
+  spawnersRight:
+  - {fileID: 114185462093729342}
+--- !u!114 &114989306628954716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a579a32f29a14a97cefecb10a3a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {fileID: 407262}
+  delayMin: 2.5
+  delayMax: 7
+  speedMin: 2.5
+  speedMax: 8
+  useSpawnPlacement: 0
+  spawnCountMin: 4
+  spawnCountMax: 20
+  item: {fileID: 0}
+  goLeft: 0
+  spawnLeftPos: 0
+  spawnRightPos: 0

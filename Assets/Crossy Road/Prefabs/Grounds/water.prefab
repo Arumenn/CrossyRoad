@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3330634}
   - component: {fileID: 6584846}
   - component: {fileID: 2330580}
-  - component: {fileID: 11448028}
   m_Layer: 0
   m_Name: water
   m_TagString: Untagged
@@ -27,7 +26,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 442266}
-  - component: {fileID: 11410706}
+  - component: {fileID: 114517126038985094}
   m_Layer: 0
   m_Name: spawnLeft
   m_TagString: Untagged
@@ -43,7 +42,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 463966}
-  - component: {fileID: 11481562}
+  - component: {fileID: 114975197654021124}
   m_Layer: 0
   m_Name: spawnRight
   m_TagString: Untagged
@@ -59,7 +58,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 463250}
-  - component: {fileID: 11402650}
+  - component: {fileID: 114797561775703460}
   m_Layer: 0
   m_Name: spawnLeft
   m_TagString: Untagged
@@ -75,7 +74,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 427758}
-  - component: {fileID: 11416078}
+  - component: {fileID: 114462637970610868}
   m_Layer: 0
   m_Name: spawnRight
   m_TagString: Untagged
@@ -91,7 +90,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 478336}
-  - component: {fileID: 11433534}
+  - component: {fileID: 114704629035306256}
   m_Layer: 0
   m_Name: spawnController
   m_TagString: Untagged
@@ -235,132 +234,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.2, z: 1}
   m_Center: {x: 0, y: 0.1, z: 0}
---- !u!114 &11402650
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d713bb2e1275745a63218fd889f350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPos: {fileID: 463250}
-  delayMin: 3
-  delayMax: 4
-  speedMin: 1
-  speedMax: 3
-  useSpawnPlacement: 0
-  spawnCountMin: 4
-  spawnCountMax: 20
-  item: {fileID: 0}
-  goLeft: 0
-  spawnLeftPos: 0
-  spawnRightPos: 0
---- !u!114 &11410706
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d713bb2e1275745a63218fd889f350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPos: {fileID: 442266}
-  delayMin: 3
-  delayMax: 4
-  speedMin: 1
-  speedMax: 3
-  useSpawnPlacement: 0
-  spawnCountMin: 4
-  spawnCountMax: 20
-  item: {fileID: 0}
-  goLeft: 0
-  spawnLeftPos: 0
-  spawnRightPos: 0
---- !u!114 &11416078
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d713bb2e1275745a63218fd889f350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPos: {fileID: 427758}
-  delayMin: 3
-  delayMax: 4
-  speedMin: 1
-  speedMax: 3
-  useSpawnPlacement: 0
-  spawnCountMin: 4
-  spawnCountMax: 20
-  item: {fileID: 0}
-  goLeft: 0
-  spawnLeftPos: 0
-  spawnRightPos: 0
---- !u!114 &11433534
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b681f6982b6911a4a97710ae1a19a3ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goLeft: 0
-  goRight: 0
-  items:
-  - {fileID: 190844, guid: a95b6d6c69aeacf40aa66dce9cd6788a, type: 2}
-  - {fileID: 171626, guid: 2c5d3e1e13fc85d408bc6d03b6f5d497, type: 2}
-  - {fileID: 198646, guid: 0ef6331534c4efe4aaa71fc281285347, type: 2}
-  spawnersLeft:
-  - {fileID: 11410706}
-  - {fileID: 11402650}
-  spawnersRight:
-  - {fileID: 11481562}
-  - {fileID: 11416078}
---- !u!114 &11448028
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 139206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e85060814791da47ba6054a09aca085, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11481562
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d713bb2e1275745a63218fd889f350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPos: {fileID: 463966}
-  delayMin: 3
-  delayMax: 4
-  speedMin: 1
-  speedMax: 3
-  useSpawnPlacement: 0
-  spawnCountMin: 4
-  spawnCountMax: 20
-  item: {fileID: 0}
-  goLeft: 0
-  spawnLeftPos: 0
-  spawnRightPos: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -384,3 +257,117 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 139206}
   m_IsPrefabParent: 1
+--- !u!114 &114462637970610868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a579a32f29a14a97cefecb10a3a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {fileID: 427758}
+  delayMin: 2.5
+  delayMax: 5
+  speedMin: 1
+  speedMax: 5
+  useSpawnPlacement: 0
+  spawnCountMin: 4
+  spawnCountMax: 20
+  item: {fileID: 0}
+  goLeft: 0
+  spawnLeftPos: 0
+  spawnRightPos: 0
+--- !u!114 &114517126038985094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a579a32f29a14a97cefecb10a3a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {fileID: 442266}
+  delayMin: 2.5
+  delayMax: 5
+  speedMin: 1
+  speedMax: 5
+  useSpawnPlacement: 0
+  spawnCountMin: 4
+  spawnCountMax: 20
+  item: {fileID: 0}
+  goLeft: 0
+  spawnLeftPos: 0
+  spawnRightPos: 0
+--- !u!114 &114704629035306256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ac328051566b44fa3462d21eb11db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goLeft: 0
+  items:
+  - {fileID: 198646, guid: 0ef6331534c4efe4aaa71fc281285347, type: 2}
+  - {fileID: 171626, guid: 2c5d3e1e13fc85d408bc6d03b6f5d497, type: 2}
+  - {fileID: 190844, guid: a95b6d6c69aeacf40aa66dce9cd6788a, type: 2}
+  spawnersLeft:
+  - {fileID: 114517126038985094}
+  - {fileID: 114797561775703460}
+  spawnersRight:
+  - {fileID: 114975197654021124}
+  - {fileID: 114462637970610868}
+--- !u!114 &114797561775703460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a579a32f29a14a97cefecb10a3a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {fileID: 463250}
+  delayMin: 2.5
+  delayMax: 5
+  speedMin: 1
+  speedMax: 5
+  useSpawnPlacement: 0
+  spawnCountMin: 4
+  spawnCountMax: 20
+  item: {fileID: 0}
+  goLeft: 0
+  spawnLeftPos: 0
+  spawnRightPos: 0
+--- !u!114 &114975197654021124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a579a32f29a14a97cefecb10a3a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {fileID: 463966}
+  delayMin: 2.5
+  delayMax: 5
+  speedMin: 1
+  speedMax: 5
+  useSpawnPlacement: 0
+  spawnCountMin: 4
+  spawnCountMax: 20
+  item: {fileID: 0}
+  goLeft: 0
+  spawnLeftPos: 0
+  spawnRightPos: 0
