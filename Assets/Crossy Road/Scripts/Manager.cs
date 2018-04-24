@@ -10,6 +10,8 @@ public class Manager : MonoBehaviour
     public Text uiDistance = null;
     public Camera _camera = null;
     public GameObject uiGameOver = null;
+    public LevelGenerator levelGenerator = null;
+    public int levelCount = 50;
 
     private int currentCoins = 0;
     private int currentDistance = 0;
@@ -31,7 +33,10 @@ public class Manager : MonoBehaviour
 
     private void Start()
     {
-        //TODO Level generator
+        for (int i = 0; i < levelCount; i++)
+        {
+            levelGenerator.RandomGenerator();
+        }
     }
 
     public void UpddateCoinCount(int value = 1)
@@ -45,7 +50,7 @@ public class Manager : MonoBehaviour
         currentDistance++;
         uiDistance.text = currentDistance.ToString();
 
-        //TODO generate new level piece here
+        levelGenerator.RandomGenerator();
     }
 
     public bool CanPlay()
