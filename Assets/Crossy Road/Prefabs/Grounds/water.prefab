@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3330634}
   - component: {fileID: 6584846}
   - component: {fileID: 2330580}
+  - component: {fileID: 114426845300269078}
   m_Layer: 0
   m_Name: water
   m_TagString: Untagged
@@ -257,6 +258,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 139206}
   m_IsPrefabParent: 1
+--- !u!114 &114426845300269078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401c3d55689ead043bb839b3611c9bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114462637970610868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,10 +281,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 427758}
-  delayMin: 2.5
-  delayMax: 5
+  delayMin: 3
+  delayMax: 4
   speedMin: 1
-  speedMax: 5
+  speedMax: 3
   useSpawnPlacement: 0
   spawnCountMin: 4
   spawnCountMax: 20
@@ -292,10 +304,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 442266}
-  delayMin: 2.5
-  delayMax: 5
+  delayMin: 3
+  delayMax: 4
   speedMin: 1
-  speedMax: 5
+  speedMax: 3
   useSpawnPlacement: 0
   spawnCountMin: 4
   spawnCountMax: 20
@@ -337,10 +349,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 463250}
-  delayMin: 2.5
-  delayMax: 5
+  delayMin: 3
+  delayMax: 4
   speedMin: 1
-  speedMax: 5
+  speedMax: 3
   useSpawnPlacement: 0
   spawnCountMin: 4
   spawnCountMax: 20
@@ -360,10 +372,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 463966}
-  delayMin: 2.5
-  delayMax: 5
+  delayMin: 3
+  delayMax: 4
   speedMin: 1
-  speedMax: 5
+  speedMax: 3
   useSpawnPlacement: 0
   spawnCountMin: 4
   spawnCountMax: 20

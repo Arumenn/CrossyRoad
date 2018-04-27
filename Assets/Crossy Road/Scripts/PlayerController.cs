@@ -4,16 +4,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject chick = null;
+    [Header("Movement")]
     public float moveDistance = 1f;
     public float moveTime = 0.4f;
     public float colliderDistCheck = 1;
+    [Header("States")]
     public bool isDead = false;
     public bool isIdle = true;
     public bool isMoving = false;
     public bool jumpStart = false;
     public bool isJumping = false;
-    public ParticleSystem particle = null;
-    public GameObject chick = null;
+    public bool parentedToObject = false;
+    [Header("Particles")]
+    public ParticleSystem particleDeath = null;
+    public ParticleSystem particleSplash = null;
+    [Header("Audio")]
+    public AudioClip audioIdle1 = null;
+    public AudioClip audioIdle2 = null;
+    public AudioClip audioHop = null;
+    public AudioClip audioHit = null;
+    public AudioClip audioSplash = null;
+    
 
     private Renderer _renderer = null;
     private bool isVisible = false;
@@ -36,6 +48,7 @@ public class PlayerController : MonoBehaviour
         if (isIdle) {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) {
                 CheckIfCanMove();
+                PlayAudio(audioIdle1);
             }
         }
     }
@@ -83,6 +96,7 @@ public class PlayerController : MonoBehaviour
         isMoving = false;
         isJumping = true;
         jumpStart = false;
+        PlayAudio(audioHop);
         LeanTween.move(this.gameObject, pos, moveTime).setOnComplete(MoveComplete);
     }
 
@@ -91,6 +105,7 @@ public class PlayerController : MonoBehaviour
         isMoving = false;
         isJumping = false;
         jumpStart = false;
+        PlayAudio(audioIdle2);
     }
 
     private void SetMoveForwardState() {
@@ -109,9 +124,25 @@ public class PlayerController : MonoBehaviour
     public void GotHit() {
         isDead = true;
         isIdle = false;
-        ParticleSystem.EmissionModule em = particle.emission;
+        ParticleSystem.EmissionModule em = particleDeath.emission;
         em.enabled = true;
-
+        PlayAudio(audioHit);
         Manager.GetInstance.GameOver();
+    }
+
+    public void GotSoaked()
+    {
+        isDead = true;
+        isIdle = false;
+        ParticleSystem.EmissionModule em = particleSplash.emission;
+        em.enabled = true;
+        PlayAudio(audioSplash);
+        chick.SetActive(false);
+        Manager.GetInstance.GameOver();
+    }
+
+    private void PlayAudio(AudioClip clip)
+    {
+        this.GetComponent<AudioSource>().PlayOneShot(clip);
     }
 }
