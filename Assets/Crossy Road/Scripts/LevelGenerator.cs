@@ -19,6 +19,10 @@ public class LevelGenerator : MonoBehaviour
         {
             CreateLevelObject(platforms[i], heights[i], i);
         }
+
+        Manager.GetInstance.isNight = (Random.Range(0, 3) == 0);
+        Manager.GetInstance.sun.gameObject.SetActive(!Manager.GetInstance.isNight);
+        Manager.GetInstance.moon.gameObject.SetActive(Manager.GetInstance.isNight);
     }
 
     public void CreateLevelObject(GameObject obj, float height, int value)

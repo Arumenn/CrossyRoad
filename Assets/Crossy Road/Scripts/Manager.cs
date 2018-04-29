@@ -6,12 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
+    [Header("GUI")]
     public Text uiCoin = null;
     public Text uiDistance = null;
     public Camera _camera = null;
     public GameObject uiGameOver = null;
+    [Header("Level")]
     public LevelGenerator levelGenerator = null;
     public int levelCount = 50;
+    public Light sun = null;
+    public Light moon = null;
+
+    [HideInInspector] public bool isNight = false;
 
     private int currentCoins = 0;
     private int currentDistance = 0;
