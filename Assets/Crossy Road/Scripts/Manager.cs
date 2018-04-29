@@ -15,6 +15,8 @@ public class Manager : MonoBehaviour
     [Header("Level")]
     public LevelGenerator levelGenerator = null;
     public int levelCount = 50;
+    public float outerLimitsX = 25f;
+    public float outerLimitZ = -7.5f;
     public Light sun = null;
     public Light moon = null;
 

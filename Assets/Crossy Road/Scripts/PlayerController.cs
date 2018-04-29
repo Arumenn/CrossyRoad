@@ -38,10 +38,23 @@ public class PlayerController : MonoBehaviour
         if (!Manager.GetInstance.CanPlay()) { return; }
         if (isDead) { return; }
 
+        IsOutsideLimit();
         CanIdle();
         CanMove();
 
         IsVisible();
+    }
+
+    private void IsOutsideLimit()
+    {
+        if (Mathf.Abs(transform.position.x) >= Manager.GetInstance.outerLimitsX)
+        {
+            GotHit();
+        }
+        if (transform.position.z <= Manager.GetInstance.outerLimitZ)
+        {
+            GotHit();
+        }
     }
 
     private void CanIdle() {
