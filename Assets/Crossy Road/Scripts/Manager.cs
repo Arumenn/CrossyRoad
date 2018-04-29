@@ -10,6 +10,7 @@ public class Manager : MonoBehaviour
     public Text uiCoin = null;
     public Text uiDistance = null;
     public Camera _camera = null;
+    public GameObject uiStartScreen = null;
     public GameObject uiGameOver = null;
     [Header("Level")]
     public LevelGenerator levelGenerator = null;
@@ -39,9 +40,27 @@ public class Manager : MonoBehaviour
 
     private void Start()
     {
+        levelGenerator.SetupNewLevel();
         for (int i = 0; i < levelCount; i++)
         {
             levelGenerator.RandomGenerator();
+        }
+    }
+
+    private void Update()
+    {
+        if (!CanPlay())
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                if (uiGameOver.active)
+                {
+                    PlayAgain();
+                } else
+                {
+                    StartPlay();
+                }
+            }
         }
     }
 
@@ -67,6 +86,7 @@ public class Manager : MonoBehaviour
     public void StartPlay()
     {
         canPlay = true;
+        uiStartScreen.SetActive(false);
     }
 
     public void GameOver()
