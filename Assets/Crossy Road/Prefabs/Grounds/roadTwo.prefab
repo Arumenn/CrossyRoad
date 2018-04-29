@@ -411,10 +411,12 @@ MonoBehaviour:
   delayMax: 5
   speedMin: 1
   speedMax: 4
-  useSpawnPlacement: 1
+  spawnAtRandomPositions: 1
   spawnCountMin: 4
   spawnCountMax: 20
+  items: []
   item: {fileID: 0}
+  randomizeItems: 0
   goLeft: 0
   spawnLeftPos: 0
   spawnRightPos: 0
@@ -434,10 +436,12 @@ MonoBehaviour:
   delayMax: 5
   speedMin: 1
   speedMax: 4
-  useSpawnPlacement: 0
+  spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
+  items: []
   item: {fileID: 0}
+  randomizeItems: 0
   goLeft: 0
   spawnLeftPos: 0
   spawnRightPos: 0
@@ -457,10 +461,12 @@ MonoBehaviour:
   delayMax: 5
   speedMin: 1
   speedMax: 4
-  useSpawnPlacement: 1
+  spawnAtRandomPositions: 1
   spawnCountMin: 4
   spawnCountMax: 20
+  items: []
   item: {fileID: 0}
+  randomizeItems: 0
   goLeft: 0
   spawnLeftPos: 0
   spawnRightPos: 0
@@ -480,10 +486,12 @@ MonoBehaviour:
   delayMax: 5
   speedMin: 1
   speedMax: 4
-  useSpawnPlacement: 0
+  spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
+  items: []
   item: {fileID: 0}
+  randomizeItems: 0
   goLeft: 0
   spawnLeftPos: 0
   spawnRightPos: 0
@@ -503,10 +511,12 @@ MonoBehaviour:
   delayMax: 5
   speedMin: 1
   speedMax: 4
-  useSpawnPlacement: 1
+  spawnAtRandomPositions: 1
   spawnCountMin: 4
   spawnCountMax: 20
+  items: []
   item: {fileID: 0}
+  randomizeItems: 0
   goLeft: 0
   spawnLeftPos: 0
   spawnRightPos: 0
@@ -526,10 +536,12 @@ MonoBehaviour:
   delayMax: 5
   speedMin: 1
   speedMax: 4
-  useSpawnPlacement: 0
+  spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
+  items: []
   item: {fileID: 0}
+  randomizeItems: 0
   goLeft: 0
   spawnLeftPos: 0
   spawnRightPos: 0
@@ -549,10 +561,12 @@ MonoBehaviour:
   delayMax: 5
   speedMin: 1
   speedMax: 4
-  useSpawnPlacement: 0
+  spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
+  items: []
   item: {fileID: 0}
+  randomizeItems: 0
   goLeft: 0
   spawnLeftPos: 0
   spawnRightPos: 0
@@ -572,10 +586,12 @@ MonoBehaviour:
   delayMax: 5
   speedMin: 1
   speedMax: 4
-  useSpawnPlacement: 1
+  spawnAtRandomPositions: 1
   spawnCountMin: 4
   spawnCountMax: 20
+  items: []
   item: {fileID: 0}
+  randomizeItems: 0
   goLeft: 0
   spawnLeftPos: 0
   spawnRightPos: 0
@@ -591,6 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goLeft: 0
+  itemsAreDecor: 0
   items:
   - {fileID: 128730, guid: 39a7e941a64fb034caae3c6c80804ffc, type: 2}
   - {fileID: 121994, guid: 41387607d4f8d9e44a9e813c776943d4, type: 2}
@@ -615,6 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goLeft: 0
+  itemsAreDecor: 0
   items:
   - {fileID: 172592, guid: 1b0c627b7b492e54fb7244fdb0038d88, type: 2}
   spawnersLeft:

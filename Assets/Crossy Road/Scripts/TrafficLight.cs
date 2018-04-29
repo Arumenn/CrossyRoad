@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TrafficLight : MonoBehaviour
 {
-    public GameObject light = null;
+    public GameObject _light = null;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "train")
         {
-            light.SetActive(true);
+            _light.SetActive(true);
         }
     }
 
@@ -18,7 +18,7 @@ public class TrafficLight : MonoBehaviour
     {
         if (other.tag == "train")
         {
-            light.SetActive(false);
+            _light.SetActive(false);
         }
     }
 }

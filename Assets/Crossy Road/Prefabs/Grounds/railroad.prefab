@@ -1355,10 +1355,12 @@ MonoBehaviour:
   delayMax: 7
   speedMin: 2.5
   speedMax: 8
-  useSpawnPlacement: 0
+  spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
+  items: []
   item: {fileID: 0}
+  randomizeItems: 0
   goLeft: 0
   spawnLeftPos: 0
   spawnRightPos: 0
@@ -1373,7 +1375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4ee974965faf8479764e3580ad950e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 1087031898802190}
+  _light: {fileID: 1087031898802190}
 --- !u!114 &114729688892587260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1385,7 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4ee974965faf8479764e3580ad950e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 1747746539971652}
+  _light: {fileID: 1747746539971652}
 --- !u!114 &114899415160363624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1398,6 +1400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goLeft: 0
+  itemsAreDecor: 0
   items:
   - {fileID: 176312, guid: cd7ccbdab9660cd4e8c053de8140459f, type: 2}
   - {fileID: 151708, guid: b744b5c57a4c5c24b8c64a24a081fdf6, type: 2}
@@ -1418,7 +1421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4ee974965faf8479764e3580ad950e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 1945759138997878}
+  _light: {fileID: 1945759138997878}
 --- !u!114 &114989306628954716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1435,10 +1438,12 @@ MonoBehaviour:
   delayMax: 7
   speedMin: 2.5
   speedMax: 8
-  useSpawnPlacement: 0
+  spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
+  items: []
   item: {fileID: 0}
+  randomizeItems: 0
   goLeft: 0
   spawnLeftPos: 0
   spawnRightPos: 0
