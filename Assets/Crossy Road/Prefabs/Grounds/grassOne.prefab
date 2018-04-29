@@ -314,6 +314,7 @@ MonoBehaviour:
   - {fileID: 176378, guid: f770b16cc89e37e4386488baf04a1ca0, type: 2}
   - {fileID: 104532, guid: e88d753d0943c0b49b581a77769253b7, type: 2}
   - {fileID: 119080, guid: fc6ee3c6e3de12e488fd0db7b87b1a22, type: 2}
+  - {fileID: 1791795827074212, guid: a03ca27d415580b4cac6d999193dc79d, type: 2}
   spawnersLeft:
   - {fileID: 114020219874443118}
   spawnersRight:
