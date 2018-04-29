@@ -539,6 +539,8 @@ MonoBehaviour:
   uiGameOver: {fileID: 1857858018}
   levelGenerator: {fileID: 1036266638}
   levelCount: 50
+  outerLimitsX: 25
+  outerLimitZ: -7.5
   sun: {fileID: 508765771}
   moon: {fileID: 1565696791}
   isNight: 0
@@ -2442,3 +2444,60 @@ Transform:
   m_Father: {fileID: 927990984}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2130709214
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 454870, guid: 508940e8e0a497243b7dc9f78fc61cf8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454870, guid: 508940e8e0a497243b7dc9f78fc61cf8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 454870, guid: 508940e8e0a497243b7dc9f78fc61cf8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -8.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 454870, guid: 508940e8e0a497243b7dc9f78fc61cf8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454870, guid: 508940e8e0a497243b7dc9f78fc61cf8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454870, guid: 508940e8e0a497243b7dc9f78fc61cf8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454870, guid: 508940e8e0a497243b7dc9f78fc61cf8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 454870, guid: 508940e8e0a497243b7dc9f78fc61cf8, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198961641463010430, guid: 508940e8e0a497243b7dc9f78fc61cf8,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198961641463010430, guid: 508940e8e0a497243b7dc9f78fc61cf8,
+        type: 2}
+      propertyPath: randomSeed
+      value: 769202857
+      objectReference: {fileID: 0}
+    - target: {fileID: 198961641463010430, guid: 508940e8e0a497243b7dc9f78fc61cf8,
+        type: 2}
+      propertyPath: TrailModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 508940e8e0a497243b7dc9f78fc61cf8, type: 2}
+  m_IsPrefabParent: 0
