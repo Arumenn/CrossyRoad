@@ -10,6 +10,7 @@ public class LevelGenerator : MonoBehaviour
     private int rndRange = 0;
     private float lastPos = 0f;
     private float lastScale = 0f;
+    private int lastPlatformRange = -1;
 
     public void SetupNewLevel()
     {
@@ -20,30 +21,37 @@ public class LevelGenerator : MonoBehaviour
 
     public void RandomGenerator()
     {
-        rndRange = Random.Range(0, platforms.Count);
-
-        for (int i = 0; i < platforms.Count; i++)
+        randomPlatform();
+        while (rndRange == lastPlatformRange)
         {
-            CreateLevelObject(platforms[i], heights[i], i);
+            randomPlatform();
         }
+        lastPlatformRange = rndRange;
+
+        Debug.Log("Generating platform " + rndRange);
+
+        CreateLevelObject(platforms[rndRange], heights[rndRange], rndRange);
     }
 
     public void CreateLevelObject(GameObject obj, float height, int value)
     {
-        if (rndRange == value)
-        {
-            GameObject go = Instantiate(obj) as GameObject;
+        
+        GameObject go = Instantiate(obj) as GameObject;
 
-            float offset = lastPos + (lastScale * 0.5f);
-            offset += (go.transform.localScale.z) * 0.5f;
-            Vector3 pos = new Vector3(0, height, offset);
+        float offset = lastPos + (lastScale * 0.5f);
+        offset += (go.transform.localScale.z) * 0.5f;
+        Vector3 pos = new Vector3(0, height, offset);
 
-            go.transform.position = pos;
+        go.transform.position = pos;
 
-            lastPos = go.transform.position.z;
-            lastScale = go.transform.localScale.z;
+        lastPos = go.transform.position.z;
+        lastScale = go.transform.localScale.z;
 
-            go.transform.parent = this.transform;
-        }
+        go.transform.parent = this.transform;
+    }
+
+    private void randomPlatform()
+    {
+        rndRange = Random.Range(0, platforms.Count);
     }
 }
