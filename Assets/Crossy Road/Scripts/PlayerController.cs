@@ -38,7 +38,10 @@ public class PlayerController : MonoBehaviour
         if (!Manager.GetInstance.CanPlay()) { return; }
         if (isDead) { return; }
 
-        if (!IsOutsideLimit())
+        if (Manager.GetInstance.IsOutsideLimit(this.transform.position, false))
+        {
+            GotHit();
+        } else
         {
             CanIdle();
             CanMove();

@@ -423,8 +423,8 @@ MonoBehaviour:
   startPos: {fileID: 463966}
   delayMin: 3
   delayMax: 4
-  speedMin: 3
-  speedMax: 5
+  speedMin: 1
+  speedMax: 3
   baseSpeedOnOtherSpawner: {fileID: 114462637970610868}
   spawnAtRandomPositions: 0
   spawnCountMin: 4

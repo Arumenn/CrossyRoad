@@ -141,4 +141,17 @@ public class Manager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public bool IsOutsideLimit(Vector3 objPos, bool isMover)
+    {
+        if (Mathf.Abs(objPos.x) >= (isMover ? this.outerLimitsX + 10 : this.outerLimitsX))
+        {
+            return true;
+        }
+        if (objPos.z <= this.outerLimitZ)
+        {
+            return true;
+        }
+        return false;
+    }
 }

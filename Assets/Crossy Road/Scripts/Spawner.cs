@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
     public int spawnCountMin = 4;
     public int spawnCountMax = 20;
 
-    [HideInInspector] public float speed = 0f;
+     public float speed = 0f;
 
     private float lastTime = 0f;
     private float delayTime = 0f;
@@ -48,6 +48,7 @@ public class Spawner : MonoBehaviour
             {
                 float faster = Random.Range(1.1f, 1.4f); //10 to 40% faster than other spawner
                 speed = baseSpeedOnOtherSpawner.speed * faster;
+                Debug.Log("Speed is " + faster + " faster than other spawner, so " + speed + " instead of " + baseSpeedOnOtherSpawner.speed);
             } else
             {
                 speed = Random.Range(speedMin, speedMax);
@@ -69,7 +70,7 @@ public class Spawner : MonoBehaviour
 
     private void SpawnItem()
     {
-        Debug.Log("Spawning new Item");
+        //Debug.Log("Spawning new Item");
         ChooseItem();
         GameObject obj = Instantiate(item) as GameObject;
         obj.transform.position = GetSpawnPosition();

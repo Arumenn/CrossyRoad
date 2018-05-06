@@ -26,8 +26,8 @@ public class Mover : MonoBehaviour
     private void IsVisible() {
         if (_renderer.isVisible) { isVisible = true; }
 
-        if (!_renderer.isVisible && isVisible) {
-            Debug.Log("Mover is off screen. Cleanup.");
+        if (Manager.GetInstance.IsOutsideLimit(this.transform.position, true)) { 
+            //Debug.Log("Mover is off screen. Cleanup.");
             Destroy(this.gameObject);
         }
     }
