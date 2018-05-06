@@ -77,7 +77,7 @@ public class Spawner : MonoBehaviour
     {
         if (item == null || randomizeItems)
         {
-            int itemId = Random.Range(0, items.Count);
+            int itemId = Random.Range(0, items.Count - 1);
             item = items[itemId];
         }
     }

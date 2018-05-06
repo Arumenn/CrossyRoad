@@ -344,6 +344,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 566f33a8d2656344c9425fdb84029830, type: 2}
   m_StaticBatchInfo:
@@ -608,6 +609,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goLeft: 0
   itemsAreDecor: 0
+  spawnableItems:
+  - itemPrefab: {fileID: 128730, guid: 39a7e941a64fb034caae3c6c80804ffc, type: 2}
+    spawnChance: 0.2
+  - itemPrefab: {fileID: 121994, guid: 41387607d4f8d9e44a9e813c776943d4, type: 2}
+    spawnChance: 0.2
+  - itemPrefab: {fileID: 124906, guid: 4195b4ff6d0a23f42ad9b7dbe76a33e3, type: 2}
+    spawnChance: 0.2
+  - itemPrefab: {fileID: 110210, guid: 8dd2343005dbd8b469e430e4fe7caeeb, type: 2}
+    spawnChance: 0.2
+  - itemPrefab: {fileID: 172972, guid: 9c53222ecfac6ea429120bfdda9abcd7, type: 2}
+    spawnChance: 0.2
   items:
   - {fileID: 128730, guid: 39a7e941a64fb034caae3c6c80804ffc, type: 2}
   - {fileID: 121994, guid: 41387607d4f8d9e44a9e813c776943d4, type: 2}
@@ -633,6 +645,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goLeft: 0
   itemsAreDecor: 0
+  spawnableItems:
+  - itemPrefab: {fileID: 172592, guid: 1b0c627b7b492e54fb7244fdb0038d88, type: 2}
+    spawnChance: 1
   items:
   - {fileID: 172592, guid: 1b0c627b7b492e54fb7244fdb0038d88, type: 2}
   spawnersLeft:

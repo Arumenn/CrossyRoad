@@ -162,7 +162,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: -10.33}
   m_LocalScale: {x: 50, y: 1, z: 1}
   m_Children:
   - {fileID: 487804}
@@ -224,6 +224,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: ce0f942248481544f8f4ae8d7023924e, type: 2}
   m_StaticBatchInfo:
@@ -313,6 +314,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goLeft: 0
   itemsAreDecor: 1
+  spawnableItems:
+  - itemPrefab: {fileID: 176378, guid: f770b16cc89e37e4386488baf04a1ca0, type: 2}
+    spawnChance: 0.3
+  - itemPrefab: {fileID: 104532, guid: e88d753d0943c0b49b581a77769253b7, type: 2}
+    spawnChance: 0.3
+  - itemPrefab: {fileID: 119080, guid: fc6ee3c6e3de12e488fd0db7b87b1a22, type: 2}
+    spawnChance: 0.3
+  - itemPrefab: {fileID: 1791795827074212, guid: a03ca27d415580b4cac6d999193dc79d,
+      type: 2}
+    spawnChance: 0.1
   items:
   - {fileID: 176378, guid: f770b16cc89e37e4386488baf04a1ca0, type: 2}
   - {fileID: 104532, guid: e88d753d0943c0b49b581a77769253b7, type: 2}
@@ -335,6 +346,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goLeft: 0
   itemsAreDecor: 0
+  spawnableItems:
+  - itemPrefab: {fileID: 172592, guid: 1b0c627b7b492e54fb7244fdb0038d88, type: 2}
+    spawnChance: 1
   items:
   - {fileID: 172592, guid: 1b0c627b7b492e54fb7244fdb0038d88, type: 2}
   spawnersLeft:
