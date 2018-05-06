@@ -5,14 +5,6 @@ using UnityEngine;
 
 public class SpawnController : MonoBehaviour
 {
-    [System.Serializable]
-    public class SpawnableItems
-    {
-        public GameObject itemPrefab;
-        public float spawnChance = 1f;
-    }
-
-
     public bool goLeft = false;
     public bool itemsAreDecor = false;
     public SpawnableItems[] spawnableItems;

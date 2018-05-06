@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public List<GameObject> platforms = new List<GameObject>();
-    public List<float> heights = new List<float>();
+    public Platform[] platforms;
 
     private int rndRange = 0;
+    private PlatformType curPlatformType;
     private float lastPos = 0f;
     private float lastScale = 0f;
     private int lastPlatformRange = -1;
+    private PlatformType lastPlatformType;
 
     public void SetupNewLevel()
     {
@@ -22,15 +23,16 @@ public class LevelGenerator : MonoBehaviour
     public void RandomGenerator()
     {
         randomPlatform();
-        while (rndRange == lastPlatformRange)
+        while (rndRange == lastPlatformRange || curPlatformType == lastPlatformType)
         {
             randomPlatform();
         }
         lastPlatformRange = rndRange;
+        lastPlatformType = platforms[rndRange].platformType;
 
         Debug.Log("Generating platform " + rndRange);
 
-        CreateLevelObject(platforms[rndRange], heights[rndRange], rndRange);
+        CreateLevelObject(platforms[rndRange].platformPrefab, platforms[rndRange].height, rndRange);
     }
 
     public void CreateLevelObject(GameObject obj, float height, int value)
@@ -52,6 +54,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void randomPlatform()
     {
-        rndRange = Random.Range(0, platforms.Count);
+        rndRange = Random.Range(0, platforms.Length );
+        curPlatformType = platforms[rndRange].platformType;
     }
 }

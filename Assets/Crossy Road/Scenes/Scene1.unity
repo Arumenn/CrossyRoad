@@ -1079,19 +1079,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platforms:
-  - {fileID: 139162, guid: ce982e585b9788144ba6154129f84b06, type: 2}
-  - {fileID: 127870, guid: a9a9860f534b42d499243b587e3b3e03, type: 2}
-  - {fileID: 135800, guid: 82d9c4adfc0d40b49ad4a7dd0b298b9a, type: 2}
-  - {fileID: 160302, guid: 73c5604e817fc0a44a46505ca4499d3a, type: 2}
-  - {fileID: 173304, guid: d73cba9fda67c514a9f5de55b68877ab, type: 2}
-  - {fileID: 139206, guid: 508940e8e0a497243b7dc9f78fc61cf8, type: 2}
-  heights:
-  - -0.5
-  - -0.5
-  - -0.55
-  - -0.55
-  - -0.55
-  - -0.65
+  - platformPrefab: {fileID: 139206, guid: 508940e8e0a497243b7dc9f78fc61cf8, type: 2}
+    height: -0.65
+    platformType: 2
+  - platformPrefab: {fileID: 160302, guid: 73c5604e817fc0a44a46505ca4499d3a, type: 2}
+    height: -0.55
+    platformType: 3
+  - platformPrefab: {fileID: 135800, guid: 82d9c4adfc0d40b49ad4a7dd0b298b9a, type: 2}
+    height: -0.55
+    platformType: 4
+  - platformPrefab: {fileID: 127870, guid: a9a9860f534b42d499243b587e3b3e03, type: 2}
+    height: -0.5
+    platformType: 1
+  - platformPrefab: {fileID: 139162, guid: ce982e585b9788144ba6154129f84b06, type: 2}
+    height: -0.5
+    platformType: 1
+  - platformPrefab: {fileID: 173304, guid: d73cba9fda67c514a9f5de55b68877ab, type: 2}
+    height: -0.55
+    platformType: 3
 --- !u!4 &1036266639
 Transform:
   m_ObjectHideFlags: 0
