@@ -110,7 +110,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 478336}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &442266
 Transform:
@@ -164,7 +164,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 478336}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &478336
 Transform:
@@ -178,8 +178,8 @@ Transform:
   m_Children:
   - {fileID: 442266}
   - {fileID: 463250}
-  - {fileID: 463966}
   - {fileID: 427758}
+  - {fileID: 463966}
   m_Father: {fileID: 454870}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -317,9 +317,11 @@ MonoBehaviour:
   delayMax: 4
   speedMin: 1
   speedMax: 3
+  baseSpeedOnOtherSpawner: {fileID: 0}
   spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
+  speed: 0
   items: []
   item: {fileID: 0}
   randomizeItems: 0
@@ -342,9 +344,11 @@ MonoBehaviour:
   delayMax: 4
   speedMin: 1
   speedMax: 3
+  baseSpeedOnOtherSpawner: {fileID: 0}
   spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
+  speed: 0
   items: []
   item: {fileID: 0}
   randomizeItems: 0
@@ -371,16 +375,13 @@ MonoBehaviour:
     spawnChance: 0.5
   - itemPrefab: {fileID: 190844, guid: a95b6d6c69aeacf40aa66dce9cd6788a, type: 2}
     spawnChance: 0.2
-  items:
-  - {fileID: 198646, guid: 0ef6331534c4efe4aaa71fc281285347, type: 2}
-  - {fileID: 171626, guid: 2c5d3e1e13fc85d408bc6d03b6f5d497, type: 2}
-  - {fileID: 190844, guid: a95b6d6c69aeacf40aa66dce9cd6788a, type: 2}
   spawnersLeft:
   - {fileID: 114517126038985094}
   - {fileID: 114797561775703460}
   spawnersRight:
   - {fileID: 114975197654021124}
   - {fileID: 114462637970610868}
+  itemsBasedOnProbability: []
 --- !u!114 &114797561775703460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,11 +396,13 @@ MonoBehaviour:
   startPos: {fileID: 463250}
   delayMin: 3
   delayMax: 4
-  speedMin: 1
-  speedMax: 3
+  speedMin: 3
+  speedMax: 5
+  baseSpeedOnOtherSpawner: {fileID: 114517126038985094}
   spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
+  speed: 0
   items: []
   item: {fileID: 0}
   randomizeItems: 0
@@ -420,11 +423,13 @@ MonoBehaviour:
   startPos: {fileID: 463966}
   delayMin: 3
   delayMax: 4
-  speedMin: 1
-  speedMax: 3
+  speedMin: 3
+  speedMax: 5
+  baseSpeedOnOtherSpawner: {fileID: 114462637970610868}
   spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
+  speed: 0
   items: []
   item: {fileID: 0}
   randomizeItems: 0

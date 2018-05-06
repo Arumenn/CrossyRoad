@@ -30,8 +30,6 @@ public class LevelGenerator : MonoBehaviour
         lastPlatformRange = rndRange;
         lastPlatformType = platforms[rndRange].platformType;
 
-        Debug.Log("Generating platform " + rndRange);
-
         CreateLevelObject(platforms[rndRange].platformPrefab, platforms[rndRange].height, rndRange);
     }
 

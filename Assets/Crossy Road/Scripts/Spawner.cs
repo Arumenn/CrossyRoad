@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     public float delayMax = 5f;
     public float speedMin = 1f;
     public float speedMax = 4f;
+    public Spawner baseSpeedOnOtherSpawner = null;
 
     // spawn at start
     [Header("At Start")]
@@ -19,9 +20,10 @@ public class Spawner : MonoBehaviour
     public int spawnCountMin = 4;
     public int spawnCountMax = 20;
 
+    [HideInInspector] public float speed = 0f;
+
     private float lastTime = 0f;
     private float delayTime = 0f;
-    private float speed = 0f;
     private List<int> usedPlacements = new List<int>();
 
     [HideInInspector] public List<GameObject> items = new List<GameObject>();
@@ -42,7 +44,14 @@ public class Spawner : MonoBehaviour
             }
         } else
         {
-            speed = Random.Range(speedMin, speedMax);
+            if (baseSpeedOnOtherSpawner != null)
+            {
+                float faster = Random.Range(1.1f, 1.4f); //10 to 40% faster than other spawner
+                speed = baseSpeedOnOtherSpawner.speed * faster;
+            } else
+            {
+                speed = Random.Range(speedMin, speedMax);
+            }
         }
     }
 
