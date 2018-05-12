@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -79,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
         CheckIfCanMove();
 
-        int a = Random.Range(0, 12);
+        int a = UnityEngine.Random.Range(0, 12);
         if (a < 4) { PlayAudio(audioIdle1); }
     }
 
@@ -136,8 +137,15 @@ public class PlayerController : MonoBehaviour
         isMoving = false;
         isJumping = false;
         jumpStart = false;
-        int a = Random.Range(0, 12);
+        int a = UnityEngine.Random.Range(0, 12);
         if (a < 4) { PlayAudio(audioIdle2); }
+        if (!parentedToObject) { SnapToGrid(); }
+    }
+
+    private void SnapToGrid()
+    {
+        Vector3 curPos = this.transform.position;
+        transform.position = new Vector3(Mathf.Round(curPos.x), curPos.y, (float)Math.Round(curPos.z, 1));
     }
 
     private void SetMoveForwardState() {

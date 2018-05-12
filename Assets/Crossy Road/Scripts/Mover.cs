@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,7 +38,9 @@ public class Mover : MonoBehaviour
             Debug.Log("Enter");
             if (parentOnTrigger) {
                 Debug.Log("Enter: Parent to me");
-                other.transform.parent = this.transform;
+                Transform spot = GetClosestSpot(other.transform);
+                other.transform.parent = spot;
+                other.transform.position = spot.position;
                 other.GetComponent<PlayerController>().parentedToObject = true;
             }
             if (hitBoxOnTrigger) {
@@ -45,6 +48,23 @@ public class Mover : MonoBehaviour
                 other.GetComponent<PlayerController>().GotHit();
             }
         }
+    }
+
+    private Transform GetClosestSpot(Transform other)
+    {
+        float minDist = Mathf.Infinity;
+        MoverSpot closest = null;
+        foreach (MoverSpot spot in this.GetComponentsInChildren<MoverSpot>())
+        {
+            float dist = Vector3.Distance(other.position, spot.transform.position);
+            if (dist < minDist)
+            {
+                closest = spot;
+                minDist = dist;
+            }
+        }
+        Debug.Log("Closest is " + closest.transform.position);
+        return closest.transform;
     }
 
     private void OnTriggerExit(Collider other) {

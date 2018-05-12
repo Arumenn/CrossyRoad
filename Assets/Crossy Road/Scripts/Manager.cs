@@ -73,6 +73,10 @@ public class Manager : MonoBehaviour
                 }
             }
         }
+        if (Input.GetKeyUp(KeyCode.F12))
+        {
+            PlayAgain();
+        }
     }
 
     public void UpddateCoinCount(int value = 1)
