@@ -666,7 +666,9 @@ MonoBehaviour:
   itemsAreDecor: 0
   spawnableItems:
   - itemPrefab: {fileID: 172592, guid: 1b0c627b7b492e54fb7244fdb0038d88, type: 2}
-    spawnChance: 1
+    spawnChance: 0.9
+  - itemPrefab: {fileID: 172592, guid: 721522f2a2e58be42b359502ef4ea516, type: 2}
+    spawnChance: 0.1
   spawnersLeft:
   - {fileID: 114424033614282828}
   - {fileID: 114262541547985534}
