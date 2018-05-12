@@ -13,12 +13,14 @@ public class Buff : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<PlayerController>().ApplyBuffs(buffs);
-            Debug.Log("Player picked up Buff");
-            buffObject.SetActive(false);
-            GetComponent<AudioSource>().PlayOneShot(audioClip);
+            if (other.GetComponent<PlayerController>().ApplyBuffs(buffs))
+            {
+                Debug.Log("Player picked up Buff");
+                buffObject.SetActive(false);
+                GetComponent<AudioSource>().PlayOneShot(audioClip);
 
-            Destroy(this.gameObject, audioClip.length);
+                Destroy(this.gameObject, audioClip.length);
+            }
         }
     }
 }

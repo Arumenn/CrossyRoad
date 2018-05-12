@@ -152,7 +152,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.54
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -267,6 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffs:
     duration: 5
-    AddToJumpDistance: 1
+    AddToJumpDistance: 2
+    SetCameraSpeed: 1
   buffObject: {fileID: 1186792460804760}
   audioClip: {fileID: 8300000, guid: 76605c4449d79ea41a52343e0de9c1e1, type: 3}

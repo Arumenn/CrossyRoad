@@ -189,12 +189,12 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void ApplyBuffs(BuffValues buffs)
+    public bool ApplyBuffs(BuffValues buffs)
     {
-        if (isBuffed) { return; }
+        if (isBuffed) { return false; }
         Debug.Log("applying buff! " + buffs.ToString());
         moveDistance += buffs.AddToJumpDistance;
-        Camera.main.GetComponent<CameraFollow>().speed = moveDistance * 0.25f;
+        Camera.main.GetComponent<CameraFollow>().speed = moveDistance;
 
         if (buffs.AddToJumpDistance > 0)
         {
@@ -204,6 +204,7 @@ public class PlayerController : MonoBehaviour
 
         StartCoroutine("RemoveBuffs", buffs);
         isBuffed = true;
+        return true;
     }
 
     public IEnumerator RemoveBuffs(BuffValues buffs)
@@ -211,7 +212,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSecondsRealtime(buffs.duration);
         Debug.Log("removing buff! " + buffs.ToString());
         moveDistance -= buffs.AddToJumpDistance;
-        Camera.main.GetComponent<CameraFollow>().speed = moveDistance * 0.25f;
+        Camera.main.GetComponent<CameraFollow>().speed = moveDistance;
 
         if (buffs.AddToJumpDistance > 0)
         {

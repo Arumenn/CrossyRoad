@@ -28,6 +28,6 @@ public class CameraFollow : MonoBehaviour
 
     private void CalcPosBetweenCameraAndObject()
     {
-        pos = Vector3.Lerp(gameObject.transform.position, objectToFollow.transform.position + offset, Time.deltaTime);
+        pos = Vector3.Lerp(gameObject.transform.position, objectToFollow.transform.position + offset, speed * Time.deltaTime);
     }
 }
