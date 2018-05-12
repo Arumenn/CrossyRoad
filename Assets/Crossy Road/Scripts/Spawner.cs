@@ -13,6 +13,7 @@ public class Spawner : MonoBehaviour
     public float speedMin = 1f;
     public float speedMax = 4f;
     public Spawner baseSpeedOnOtherSpawner = null;
+    public Spawner influenceSpeedOfOtherSpawner = null;
 
     // spawn at start
     [Header("At Start")]
@@ -52,6 +53,12 @@ public class Spawner : MonoBehaviour
             } else
             {
                 speed = Random.Range(speedMin, speedMax);
+                if (influenceSpeedOfOtherSpawner)
+                {
+                    float faster = Random.Range(1.1f, 1.4f); //10 to 40% faster than other spawner
+                    influenceSpeedOfOtherSpawner.speed = speed * faster;
+                    Debug.Log("Speed is " + faster + " faster than other spawner, so " + influenceSpeedOfOtherSpawner.speed + " instead of " + speed);
+                }
             }
         }
     }

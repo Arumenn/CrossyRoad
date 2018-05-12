@@ -318,6 +318,7 @@ MonoBehaviour:
   speedMin: 1
   speedMax: 3
   baseSpeedOnOtherSpawner: {fileID: 0}
+  influenceSpeedOfOtherSpawner: {fileID: 114975197654021124}
   spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
@@ -345,6 +346,7 @@ MonoBehaviour:
   speedMin: 1
   speedMax: 3
   baseSpeedOnOtherSpawner: {fileID: 0}
+  influenceSpeedOfOtherSpawner: {fileID: 114797561775703460}
   spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
@@ -399,6 +401,7 @@ MonoBehaviour:
   speedMin: 3
   speedMax: 5
   baseSpeedOnOtherSpawner: {fileID: 114517126038985094}
+  influenceSpeedOfOtherSpawner: {fileID: 0}
   spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
@@ -426,6 +429,7 @@ MonoBehaviour:
   speedMin: 1
   speedMax: 3
   baseSpeedOnOtherSpawner: {fileID: 114462637970610868}
+  influenceSpeedOfOtherSpawner: {fileID: 0}
   spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20

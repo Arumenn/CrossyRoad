@@ -413,6 +413,7 @@ MonoBehaviour:
   speedMin: 1
   speedMax: 4
   baseSpeedOnOtherSpawner: {fileID: 0}
+  influenceSpeedOfOtherSpawner: {fileID: 0}
   spawnAtRandomPositions: 1
   spawnCountMin: 4
   spawnCountMax: 20
@@ -440,6 +441,7 @@ MonoBehaviour:
   speedMin: 1
   speedMax: 4
   baseSpeedOnOtherSpawner: {fileID: 114480483182968492}
+  influenceSpeedOfOtherSpawner: {fileID: 0}
   spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
@@ -467,6 +469,7 @@ MonoBehaviour:
   speedMin: 1
   speedMax: 4
   baseSpeedOnOtherSpawner: {fileID: 0}
+  influenceSpeedOfOtherSpawner: {fileID: 0}
   spawnAtRandomPositions: 1
   spawnCountMin: 4
   spawnCountMax: 20
@@ -494,6 +497,7 @@ MonoBehaviour:
   speedMin: 1
   speedMax: 4
   baseSpeedOnOtherSpawner: {fileID: 0}
+  influenceSpeedOfOtherSpawner: {fileID: 114477567063955896}
   spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
@@ -521,6 +525,7 @@ MonoBehaviour:
   speedMin: 1
   speedMax: 4
   baseSpeedOnOtherSpawner: {fileID: 0}
+  influenceSpeedOfOtherSpawner: {fileID: 0}
   spawnAtRandomPositions: 1
   spawnCountMin: 4
   spawnCountMax: 20
@@ -548,6 +553,7 @@ MonoBehaviour:
   speedMin: 1
   speedMax: 4
   baseSpeedOnOtherSpawner: {fileID: 114278678194150154}
+  influenceSpeedOfOtherSpawner: {fileID: 0}
   spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
@@ -575,6 +581,7 @@ MonoBehaviour:
   speedMin: 1
   speedMax: 4
   baseSpeedOnOtherSpawner: {fileID: 0}
+  influenceSpeedOfOtherSpawner: {fileID: 114202412433324778}
   spawnAtRandomPositions: 0
   spawnCountMin: 4
   spawnCountMax: 20
@@ -602,6 +609,7 @@ MonoBehaviour:
   speedMin: 1
   speedMax: 4
   baseSpeedOnOtherSpawner: {fileID: 0}
+  influenceSpeedOfOtherSpawner: {fileID: 0}
   spawnAtRandomPositions: 1
   spawnCountMin: 4
   spawnCountMax: 20
