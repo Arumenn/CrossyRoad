@@ -754,48 +754,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1001 &634562165
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4818841705909366, guid: 8318e3d3e4dd2004e8d1cd4801c9f99c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818841705909366, guid: 8318e3d3e4dd2004e8d1cd4801c9f99c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818841705909366, guid: 8318e3d3e4dd2004e8d1cd4801c9f99c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818841705909366, guid: 8318e3d3e4dd2004e8d1cd4801c9f99c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.08715578
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818841705909366, guid: 8318e3d3e4dd2004e8d1cd4801c9f99c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818841705909366, guid: 8318e3d3e4dd2004e8d1cd4801c9f99c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818841705909366, guid: 8318e3d3e4dd2004e8d1cd4801c9f99c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.9961947
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818841705909366, guid: 8318e3d3e4dd2004e8d1cd4801c9f99c, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8318e3d3e4dd2004e8d1cd4801c9f99c, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &659427562
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ceeefdcdb8cb347aea656b5858ad9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
+  speed: 1
   autoMove: 0
   objectToFollow: {fileID: 1999195886}
   offset: {x: 3, y: 6, z: -3}
