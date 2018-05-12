@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [Header("Particles")]
     public ParticleSystem particleDeath = null;
     public ParticleSystem particleSplash = null;
+    public ParticleSystem particleSpeed = null;
     [Header("Audio")]
     public AudioClip audioIdle1 = null;
     public AudioClip audioIdle2 = null;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private Renderer _renderer = null;
     private bool isVisible = false;
+    private bool isBuffed = false;
 
     private void Start() {
         _renderer = chick.GetComponent<Renderer>();
@@ -87,8 +89,8 @@ public class PlayerController : MonoBehaviour
     private void CheckIfCanMove() {
         //raycast - find if there's any collider box in front of player
         RaycastHit hit;
-        Physics.Raycast(this.transform.position, -chick.transform.up, out hit, colliderDistCheck);
-        Debug.DrawRay(this.transform.position, -chick.transform.up * colliderDistCheck, Color.red, 2f);
+        Physics.Raycast(this.transform.position, -chick.transform.up, out hit, moveDistance);
+        Debug.DrawRay(this.transform.position, -chick.transform.up * moveDistance, Color.red, 2f);
 
         if (hit.collider == null) {
             SetMove();
@@ -184,5 +186,39 @@ public class PlayerController : MonoBehaviour
     private void PlayAudio(AudioClip clip)
     {
         this.GetComponent<AudioSource>().PlayOneShot(clip);
+    }
+
+
+    public void ApplyBuffs(BuffValues buffs)
+    {
+        if (isBuffed) { return; }
+        Debug.Log("applying buff! " + buffs.ToString());
+        moveDistance += buffs.AddToJumpDistance;
+        Camera.main.GetComponent<CameraFollow>().speed = moveDistance * 0.25f;
+
+        if (buffs.AddToJumpDistance > 0)
+        {
+            ParticleSystem.EmissionModule em = particleSpeed.emission;
+            em.enabled = true;
+        }
+
+        StartCoroutine("RemoveBuffs", buffs);
+        isBuffed = true;
+    }
+
+    public IEnumerator RemoveBuffs(BuffValues buffs)
+    {
+        yield return new WaitForSecondsRealtime(buffs.duration);
+        Debug.Log("removing buff! " + buffs.ToString());
+        moveDistance -= buffs.AddToJumpDistance;
+        Camera.main.GetComponent<CameraFollow>().speed = moveDistance * 0.25f;
+
+        if (buffs.AddToJumpDistance > 0)
+        {
+            ParticleSystem.EmissionModule em = particleSpeed.emission;
+            em.enabled = false;
+        }
+
+        isBuffed = false;
     }
 }
