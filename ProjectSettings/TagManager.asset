@@ -6,6 +6,7 @@ TagManager:
   tags:
   - collider
   - train
+  - checkpoint
   layers:
   - Default
   - TransparentFX

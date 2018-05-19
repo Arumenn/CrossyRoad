@@ -6,12 +6,16 @@ public class LevelGenerator : MonoBehaviour
 {
     public Platform[] platforms;
 
+    public GameObject checkpointPrefab;
+    public float checkpointHeight;
+
     private int rndRange = 0;
     private PlatformType curPlatformType;
     private float lastPos = 0f;
     private float lastScale = 0f;
     private int lastPlatformRange = -1;
     private PlatformType lastPlatformType;
+    private int sinceLastCheckpoint = 0;
 
     public void SetupNewLevel()
     {
@@ -22,15 +26,28 @@ public class LevelGenerator : MonoBehaviour
 
     public void RandomGenerator()
     {
-        randomPlatform();
-        while (rndRange == lastPlatformRange || curPlatformType == lastPlatformType)
+        if (sinceLastCheckpoint == 9)
+        {
+            AddCheckpoint();
+            sinceLastCheckpoint = 0;
+        } else
         {
             randomPlatform();
-        }
-        lastPlatformRange = rndRange;
-        lastPlatformType = platforms[rndRange].platformType;
+            while (rndRange == lastPlatformRange || curPlatformType == lastPlatformType)
+            {
+                randomPlatform();
+            }
+            lastPlatformRange = rndRange;
+            lastPlatformType = platforms[rndRange].platformType;
 
-        CreateLevelObject(platforms[rndRange].platformPrefab, platforms[rndRange].height, rndRange);
+            CreateLevelObject(platforms[rndRange].platformPrefab, platforms[rndRange].height, rndRange);
+            sinceLastCheckpoint += (int)lastScale;
+        }
+    }
+
+    public void AddCheckpoint()
+    {
+        CreateLevelObject(checkpointPrefab, checkpointHeight, -1);
     }
 
     public void CreateLevelObject(GameObject obj, float height, int value)

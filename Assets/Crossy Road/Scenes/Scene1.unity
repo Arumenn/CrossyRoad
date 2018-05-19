@@ -1879,6 +1879,8 @@ MonoBehaviour:
   - platformPrefab: {fileID: 173304, guid: d73cba9fda67c514a9f5de55b68877ab, type: 2}
     height: -0.55
     platformType: 3
+  checkpointPrefab: {fileID: 139162, guid: 88c5506da7cbe91418a03cccd1b02208, type: 2}
+  checkpointHeight: -0.5
 --- !u!4 &1036266639
 Transform:
   m_ObjectHideFlags: 0

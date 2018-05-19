@@ -4980,6 +4980,7 @@ MonoBehaviour:
   audioHop: {fileID: 8300000, guid: 9950c04412cb9eb48810ecbb7f3a752d, type: 3}
   audioHit: {fileID: 8300000, guid: 236a5cdc66675394ab0ed0b1991aa86e, type: 3}
   audioSplash: {fileID: 8300000, guid: 5b8b8818b0d1c734bbcc47b9aba6f6df, type: 3}
+  audioCheckpoint: {fileID: 8300000, guid: 7e6339206daf34d459e6a87f4a821b0e, type: 3}
 --- !u!198 &198475238198862258
 ParticleSystem:
   m_ObjectHideFlags: 1

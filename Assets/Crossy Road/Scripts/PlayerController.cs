@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public bool jumpStart = false;
     public bool isJumping = false;
     public bool parentedToObject = false;
+    public bool isSoaked = false;
     [Header("Particles")]
     public ParticleSystem particleDeath = null;
     public ParticleSystem particleSplash = null;
@@ -28,7 +29,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip audioHop = null;
     public AudioClip audioHit = null;
     public AudioClip audioSplash = null;
-    
+    public AudioClip audioCheckpoint = null;
+
+    private Vector3 lastCheckPointPos = Vector3.zero;
 
     private Renderer _renderer = null;
     private bool isVisible = false;
@@ -43,16 +46,14 @@ public class PlayerController : MonoBehaviour
                 _renderer.material.SetColor("_Color", Color.red);
             }
         }
+        lastCheckPointPos = transform.position;
     }
 
     private void Update() {
         if (!Manager.GetInstance.CanPlay()) { return; }
         if (isDead) { return; }
 
-        if (Manager.GetInstance.IsOutsideLimit(this.transform.position, false))
-        {
-            GotHit();
-        } else
+        if (!Manager.GetInstance.IsOutsideLimit(this.transform.position, false))
         {
             CanIdle();
             CanMove();
@@ -177,23 +178,35 @@ public class PlayerController : MonoBehaviour
     }
 
     public void GotHit() {
-        isDead = true;
-        isIdle = false;
         ParticleSystem.EmissionModule em = particleDeath.emission;
         em.enabled = true;
         PlayAudio(audioHit);
-        Manager.GetInstance.GameOver();
+        //Manager.GetInstance.GameOver();
+        HasDied();
     }
 
     public void GotSoaked()
     {
-        isDead = true;
-        isIdle = false;
-        ParticleSystem.EmissionModule em = particleSplash.emission;
-        em.enabled = true;
-        PlayAudio(audioSplash);
-        chick.SetActive(false);
-        Manager.GetInstance.GameOver();
+        if (!isSoaked)
+        {
+            isSoaked = true;
+            ParticleSystem.EmissionModule em = particleSplash.emission;
+            em.enabled = true;
+            PlayAudio(audioSplash);
+            chick.SetActive(false);
+            //Manager.GetInstance.GameOver();
+            HasDied();
+        }
+    }
+
+    public void HasDied()
+    {
+        if (!isDead)
+        {
+            isDead = true;
+            isIdle = false;
+            StartCoroutine("RespawnAtCheckpoint", 2f);
+        }
     }
 
     private void PlayAudio(AudioClip clip)
@@ -234,5 +247,29 @@ public class PlayerController : MonoBehaviour
         }
 
         isBuffed = false;
+    }
+
+    public void SaveCheckpoint()
+    {
+        lastCheckPointPos = transform.position;
+        PlayAudio(audioCheckpoint);
+        Debug.Log("Save checkpoint for " + controllerPrefix + " at " + lastCheckPointPos.ToString());
+    }
+
+    public IEnumerator RespawnAtCheckpoint(float waitForRespawn)
+    {
+        yield return new WaitForSecondsRealtime(waitForRespawn);
+        isDead = false;
+        isIdle = true;
+        isSoaked = false;
+        ParticleSystem.EmissionModule em = particleDeath.emission;
+        em.enabled = false;
+        em = particleSplash.emission;
+        em.enabled = false;
+        chick.SetActive(true);
+
+        transform.position = lastCheckPointPos;
+        PlayAudio(audioCheckpoint);
+        Debug.Log("Respaw at checkpoint for " + controllerPrefix + " at " + lastCheckPointPos.ToString());
     }
 }
