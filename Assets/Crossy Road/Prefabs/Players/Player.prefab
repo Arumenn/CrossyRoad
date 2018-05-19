@@ -4962,6 +4962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chick: {fileID: 106224}
+  controllerPrefix: P1
   moveDistance: 1
   moveTime: 0.2
   colliderDistCheck: 1

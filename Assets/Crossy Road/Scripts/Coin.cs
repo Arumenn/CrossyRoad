@@ -10,8 +10,9 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
-            Debug.Log("Player picked up Coin");
-            Manager.GetInstance.UpddateCoinCount(coinValue);
+            string p = other.GetComponent<PlayerController>().controllerPrefix;
+            Debug.Log("Player " + p + " picked up Coin");
+            Manager.GetInstance.UpddateCoinCount(p, coinValue);
 
 
             coin.SetActive(false);

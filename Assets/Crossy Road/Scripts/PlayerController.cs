@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject chick = null;
     [Header("Movement")]
+    public string controllerPrefix = "P1";
     public float moveDistance = 1f;
     public float moveTime = 0.4f;
     public float colliderDistCheck = 1;
@@ -35,6 +36,13 @@ public class PlayerController : MonoBehaviour
 
     private void Start() {
         _renderer = chick.GetComponent<Renderer>();
+        if (Manager.GetInstance.multiplayer)
+        {
+            if (controllerPrefix == "P2")
+            {
+                _renderer.material.SetColor("_Color", Color.red);
+            }
+        }
     }
 
     private void Update() {
@@ -69,10 +77,10 @@ public class PlayerController : MonoBehaviour
 
     private void CanIdle() {
         if (isIdle) {
-            if (Input.GetKeyDown(KeyCode.UpArrow))      { CheckIfIdle(270f, 0, 0); }
-            if (Input.GetKeyDown(KeyCode.DownArrow))    { CheckIfIdle(270f, 180f, 0); }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))    { CheckIfIdle(270f, -90f, 0); }
-            if (Input.GetKeyDown(KeyCode.RightArrow))   { CheckIfIdle(270f, 90f, 0); }
+            if (Input.GetButtonDown(controllerPrefix + "_Up"))      { CheckIfIdle(270f, 0, 0); }
+            if (Input.GetButtonDown(controllerPrefix + "_Down"))    { CheckIfIdle(270f, 180f, 0); }
+            if (Input.GetButtonDown(controllerPrefix + "_Left"))    { CheckIfIdle(270f, -90f, 0); }
+            if (Input.GetButtonDown(controllerPrefix + "_Right"))   { CheckIfIdle(270f, 90f, 0); }
         }
     }
 
@@ -96,7 +104,7 @@ public class PlayerController : MonoBehaviour
             SetMove();
         }else {
             if (hit.collider.tag == "collider") {
-                Debug.Log("Hit something with collider tag");
+                //Debug.Log("Hit something with collider tag");
                 isIdle = true;
             } else {
                 SetMove();
@@ -112,14 +120,15 @@ public class PlayerController : MonoBehaviour
 
     private void CanMove() {
         if (isMoving) {
-            if (Input.GetKeyUp(KeyCode.UpArrow)) {
+            if (Input.GetButtonUp(controllerPrefix + "_Up")) {
                 Move(new Vector3(transform.position.x, transform.position.y, transform.position.z + moveDistance));
                 SetMoveForwardState();
-            } else if (Input.GetKeyUp(KeyCode.DownArrow)) {
+            } else if (Input.GetButtonUp(controllerPrefix + "_Down")) {
                 Move(new Vector3(transform.position.x, transform.position.y, transform.position.z - moveDistance));
-            } else if (Input.GetKeyUp(KeyCode.LeftArrow)) {
+                SetMoveBackwardState();
+            } else if (Input.GetButtonUp(controllerPrefix + "_Left")) {
                 Move(new Vector3(transform.position.x - moveDistance, transform.position.y, transform.position.z));
-            } else if (Input.GetKeyUp(KeyCode.RightArrow)) {
+            } else if (Input.GetButtonUp(controllerPrefix + "_Right")) {
                 Move(new Vector3(transform.position.x + moveDistance, transform.position.y, transform.position.z));
             }
         }
@@ -151,15 +160,19 @@ public class PlayerController : MonoBehaviour
     }
 
     private void SetMoveForwardState() {
-        Manager.GetInstance.UpdateDistanceCount();
+        Manager.GetInstance.UpdateDistanceCount(controllerPrefix, moveDistance);
+    }
+    private void SetMoveBackwardState()
+    {
+        Manager.GetInstance.UpdateDistanceCount(controllerPrefix, -moveDistance);
     }
 
     private void IsVisible() {
         if (_renderer.isVisible) { isVisible = true; }
 
         if (!_renderer.isVisible && isVisible) {
-            Debug.Log("Player is off screen. Dies");
-            GotHit();
+            //Debug.Log("Player is off screen. Dies");
+            //GotHit();
         }
     }
 
@@ -192,7 +205,7 @@ public class PlayerController : MonoBehaviour
     public bool ApplyBuffs(BuffValues buffs)
     {
         if (isBuffed) { return false; }
-        Debug.Log("applying buff! " + buffs.ToString());
+        //Debug.Log("applying buff! " + buffs.ToString());
         moveDistance += buffs.AddToJumpDistance;
         Camera.main.GetComponent<CameraFollow>().speed = moveDistance;
 
@@ -210,7 +223,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator RemoveBuffs(BuffValues buffs)
     {
         yield return new WaitForSecondsRealtime(buffs.duration);
-        Debug.Log("removing buff! " + buffs.ToString());
+        //Debug.Log("removing buff! " + buffs.ToString());
         moveDistance -= buffs.AddToJumpDistance;
         Camera.main.GetComponent<CameraFollow>().speed = moveDistance;
 

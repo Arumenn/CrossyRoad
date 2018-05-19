@@ -3,15 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Manager : MonoBehaviour
 {
+    [Header("Game")]
+    public bool multiplayer = false;
+
     [Header("GUI")]
+    [Header("SinglePlayer")]
     public Text uiCoin = null;
     public Text uiDistance = null;
     public Text uiCoinHighscore = null;
     public Text uiDistanceHighscore = null;
+    public GameObject singleUIScreen = null;
+    [Header("Player1")]
+    public Text player1UiCoin = null;
+    public Text player1UiDistance = null;
+    public Text player1UiCoinHighscore = null;
+    public Text player1UiDistanceHighscore = null;
+    public GameObject player1UIScreen = null;
+    [Header("Player2")]
+    public Text player2UiCoin = null;
+    public Text player2UiDistance = null;
+    public Text player2UiCoinHighscore = null;
+    public Text player2UiDistanceHighscore = null;
+    public GameObject player2UIScreen = null;
+    [Header("CameraStuff")]
     public Camera _camera = null;
+    public Camera _cameraP1 = null;
+    public Camera _cameraP2 = null;
+    public Camera _cameraUI = null;
+    public Camera _cameraP1UI = null;
+    public Camera _cameraP2UI = null;
+    [Header("Common UI")]
     public GameObject uiStartScreen = null;
     public GameObject uiGameOver = null;
     [Header("Level")]
@@ -24,11 +49,10 @@ public class Manager : MonoBehaviour
 
     [HideInInspector] public bool isNight = false;
 
-    private int currentCoins = 0;
-    private int currentDistance = 0;
     private bool canPlay = false;
-    private int highscoreDistance = 0;
-    private int highscoreCoins = 0;
+
+    private PlayerStats player1Stats = new PlayerStats();
+    private PlayerStats player2Stats = new PlayerStats();
 
     private static Manager s_Instance;
     public static Manager GetInstance
@@ -46,15 +70,86 @@ public class Manager : MonoBehaviour
 
     private void Start()
     {
-        highscoreDistance = PlayerPrefs.GetInt("HighscoreDistance", 0);
-        highscoreCoins = PlayerPrefs.GetInt("HighscoreCoins", 0);
-        uiDistanceHighscore.text = highscoreDistance.ToString();
-        uiCoinHighscore.text = highscoreCoins.ToString();
+        if (multiplayer)
+        {
+            player1Stats.highscoreDistance = PlayerPrefs.GetInt("HighscoreDistance_P1", 0);
+            player1Stats.highscoreCoins = PlayerPrefs.GetInt("HighscoreCoins_P1", 0);
+            player2Stats.highscoreDistance = PlayerPrefs.GetInt("HighscoreDistance_P2", 0);
+            player2Stats.highscoreCoins = PlayerPrefs.GetInt("HighscoreCoins_P2", 0);
+        } else
+        {
+            player1Stats.highscoreDistance = PlayerPrefs.GetInt("HighscoreDistance", 0);
+            player1Stats.highscoreCoins = PlayerPrefs.GetInt("HighscoreCoins", 0);
+        }
+        UpdateHighscores();
 
         levelGenerator.SetupNewLevel();
         for (int i = 0; i < levelCount; i++)
         {
             levelGenerator.RandomGenerator();
+        }
+
+        //Multiplayer
+        _camera.enabled = !multiplayer;
+        _cameraP1.enabled = multiplayer;
+        _cameraP2.enabled = multiplayer;
+        _cameraUI.enabled = !multiplayer;
+        _cameraP1UI.enabled = multiplayer;
+        _cameraP2UI.enabled = multiplayer;
+        singleUIScreen.SetActive(!multiplayer);
+        player1UIScreen.SetActive(multiplayer);
+        player2UIScreen.SetActive(multiplayer);
+    }
+
+    private void UpdateHighscores()
+    {
+        //Coins
+        player1UiCoin.text = player1Stats.currentCoins.ToString();
+        uiCoin.text = player1Stats.currentCoins.ToString();
+        if (player1Stats.currentCoins > player1Stats.highscoreCoins)
+        {
+            player1UiCoinHighscore.text = player1Stats.currentCoins.ToString();
+            uiCoinHighscore.text = player1Stats.currentCoins.ToString();
+        } else
+        {
+            player1UiCoinHighscore.text = player1Stats.highscoreCoins.ToString();
+            uiCoinHighscore.text = player1Stats.highscoreCoins.ToString();
+        }
+
+        if (multiplayer)
+        {
+            player2UiCoin.text = player2Stats.currentCoins.ToString();
+            if (player2Stats.currentCoins > player2Stats.highscoreCoins)
+            {
+                player2UiCoinHighscore.text = player2Stats.currentCoins.ToString();
+            } else
+            { 
+                player2UiCoinHighscore.text = player2Stats.highscoreCoins.ToString();
+            }
+        }
+
+        //Distance
+        player1UiDistance.text = player1Stats.currentDistance.ToString();
+        uiDistance.text = player1Stats.currentDistance.ToString();
+        if (player1Stats.currentDistance > player1Stats.highscoreDistance)
+        {
+            player1UiDistanceHighscore.text = player1Stats.currentDistance.ToString();
+            uiDistanceHighscore.text = player1Stats.currentDistance.ToString();
+        } else
+        {
+            player1UiDistanceHighscore.text = player1Stats.highscoreDistance.ToString();
+            uiDistanceHighscore.text = player1Stats.highscoreDistance.ToString();
+        }
+        if (multiplayer)
+        {
+            player2UiDistance.text = player2Stats.currentDistance.ToString();
+            if (player2Stats.currentDistance > player2Stats.highscoreDistance)
+            {
+                player2UiDistanceHighscore.text = player2Stats.currentDistance.ToString();
+            } else
+            {
+                player2UiDistanceHighscore.text = player2Stats.highscoreDistance.ToString();
+            }
         }
     }
 
@@ -79,24 +174,31 @@ public class Manager : MonoBehaviour
         }
     }
 
-    public void UpddateCoinCount(int value = 1)
+    public void UpddateCoinCount(string player, int value = 1)
     {
-        currentCoins += value;
-        uiCoin.text = currentCoins.ToString();
-        if (currentCoins > highscoreCoins)
+        if (player == "P1")
         {
-            uiCoinHighscore.text = currentCoins.ToString();
+            player1Stats.currentCoins += value;
+        } else
+        {
+            player2Stats.currentCoins += value;
+            
         }
+        UpdateHighscores();
     }
 
-    public void UpdateDistanceCount()
+    public void UpdateDistanceCount(string player, float value)
     {
-        currentDistance++;
-        uiDistance.text = currentDistance.ToString();
-        if (currentDistance > highscoreDistance)
+        if (player == "P1")
         {
-            uiDistanceHighscore.text = currentDistance.ToString();
+            player1Stats.currentDistance += (int) value;
+            if (player1Stats.currentDistance < 0) { player1Stats.currentDistance = 0;  }
+        } else
+        {
+            player2Stats.currentDistance += (int) value;
+            if (player2Stats.currentDistance < 0) { player2Stats.currentDistance = 0; }
         }
+        UpdateHighscores();
 
         levelGenerator.RandomGenerator();
     }
@@ -119,19 +221,26 @@ public class Manager : MonoBehaviour
         _camera.GetComponent<CameraFollow>().enabled = false;
         GuiGameOver();
         //saves highscore if necessary
-        if (currentDistance > highscoreDistance)
+        if (multiplayer)
         {
-            PlayerPrefs.SetInt("HighscoreDistance", currentDistance);
-        }
-        if (currentCoins > highscoreCoins)
+
+        } else
         {
-            PlayerPrefs.SetInt("HighscoreCoins", currentCoins);
+
+            if (player1Stats.currentDistance > player1Stats.highscoreDistance)
+            {
+                PlayerPrefs.SetInt("HighscoreDistance", player1Stats.currentDistance);
+            }
+            if (player1Stats.currentCoins > player1Stats.highscoreCoins)
+            {
+                PlayerPrefs.SetInt("HighscoreCoins", player1Stats.currentCoins);
+            }
         }
     }
 
     private void GuiGameOver()
     {
-        Debug.Log("Game over!");
+        //Debug.Log("Game over!");
         uiGameOver.SetActive(true);
     }
 

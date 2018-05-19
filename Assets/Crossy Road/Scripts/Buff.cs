@@ -15,7 +15,7 @@ public class Buff : MonoBehaviour {
         {
             if (other.GetComponent<PlayerController>().ApplyBuffs(buffs))
             {
-                Debug.Log("Player picked up Buff");
+                //Debug.Log("Player picked up Buff");
                 buffObject.SetActive(false);
                 GetComponent<AudioSource>().PlayOneShot(audioClip);
 

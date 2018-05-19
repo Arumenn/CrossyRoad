@@ -49,7 +49,7 @@ public class Spawner : MonoBehaviour
             {
                 float faster = Random.Range(1.1f, 1.4f); //10 to 40% faster than other spawner
                 speed = baseSpeedOnOtherSpawner.speed * faster;
-                Debug.Log("Speed is " + faster + " faster than other spawner, so " + speed + " instead of " + baseSpeedOnOtherSpawner.speed);
+                //Debug.Log("Speed is " + faster + " faster than other spawner, so " + speed + " instead of " + baseSpeedOnOtherSpawner.speed);
             } else
             {
                 speed = Random.Range(speedMin, speedMax);
@@ -57,7 +57,7 @@ public class Spawner : MonoBehaviour
                 {
                     float faster = Random.Range(1.1f, 1.4f); //10 to 40% faster than other spawner
                     influenceSpeedOfOtherSpawner.speed = speed * faster;
-                    Debug.Log("Speed is " + faster + " faster than other spawner, so " + influenceSpeedOfOtherSpawner.speed + " instead of " + speed);
+                    //Debug.Log("Speed is " + faster + " faster than other spawner, so " + influenceSpeedOfOtherSpawner.speed + " instead of " + speed);
                 }
             }
         }

@@ -37,14 +37,14 @@ public class Mover : MonoBehaviour
         if (other.tag == "Player") {
             Debug.Log("Enter");
             if (parentOnTrigger) {
-                Debug.Log("Enter: Parent to me");
+                //Debug.Log("Enter: Parent to me");
                 Transform spot = GetClosestSpot(other.transform);
                 other.transform.parent = spot;
                 other.transform.position = spot.position;
                 other.GetComponent<PlayerController>().parentedToObject = true;
             }
             if (hitBoxOnTrigger) {
-                Debug.Log("Enter: Got hit. Game Over");
+                //Debug.Log("Enter: Got hit. Game Over");
                 other.GetComponent<PlayerController>().GotHit();
             }
         }
@@ -63,13 +63,13 @@ public class Mover : MonoBehaviour
                 minDist = dist;
             }
         }
-        Debug.Log("Closest is " + closest.transform.position);
+        //Debug.Log("Closest is " + closest.transform.position);
         return closest.transform;
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.tag == "Player") {
-            Debug.Log("Exit");
+            //Debug.Log("Exit");
             if (parentOnTrigger) {
                 other.transform.parent = null;
                 other.GetComponent<PlayerController>().parentedToObject = false;
