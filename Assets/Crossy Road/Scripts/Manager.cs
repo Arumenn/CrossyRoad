@@ -126,7 +126,7 @@ public class Manager : MonoBehaviour
         currentCountdown = seconds;
         while (currentCountdown > 0)
         {
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSeconds(1f);
             currentCountdown--;
             uiCompteur.text = ((int) currentCountdown).ToString();
             if (currentCountdown > 0)
