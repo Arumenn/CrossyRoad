@@ -39,11 +39,25 @@ public class PlayerController : MonoBehaviour
 
     private void Start() {
         _renderer = chick.GetComponent<Renderer>();
-        if (Manager.GetInstance.multiplayer)
+    }
+
+    public void Setup()
+    {
+        if (controllerPrefix == "P2")
         {
-            if (controllerPrefix == "P2")
+            if (Manager.GetInstance.multiplayer)
             {
                 _renderer.material.SetColor("_Color", Color.red);
+                Debug.Log(MetaManager.GetInstance.nomPlayer2);
+            } else
+            {
+                this.gameObject.SetActive(false);
+            }
+        } else
+        {
+            if (Manager.GetInstance.multiplayer)
+            {
+                Debug.Log(MetaManager.GetInstance.nomPlayer1);
             }
         }
         lastCheckPointPos = transform.position;

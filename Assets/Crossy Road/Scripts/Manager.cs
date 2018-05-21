@@ -9,6 +9,7 @@ public class Manager : MonoBehaviour
 {
     [Header("Game")]
     public bool multiplayer = false;
+    public bool paused = false;
 
     [Header("GUI")]
     [Header("SinglePlayer")]
@@ -37,8 +38,9 @@ public class Manager : MonoBehaviour
     public Camera _cameraP1UI = null;
     public Camera _cameraP2UI = null;
     [Header("Common UI")]
-    public GameObject uiStartScreen = null;
+    public GameObject uiStartScreenSingle = null;
     public GameObject uiGameOver = null;
+    public GameObject uiPause = null;
     [Header("Level")]
     public LevelGenerator levelGenerator = null;
     public int levelCount = 50;
@@ -68,7 +70,7 @@ public class Manager : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void Setup()
     {
         if (multiplayer)
         {
@@ -99,6 +101,11 @@ public class Manager : MonoBehaviour
         singleUIScreen.SetActive(!multiplayer);
         player1UIScreen.SetActive(multiplayer);
         player2UIScreen.SetActive(multiplayer);
+
+        foreach(PlayerController p in FindObjectsOfType<PlayerController>())
+        {
+            p.Setup();
+        }
     }
 
     private void UpdateHighscores()
@@ -168,9 +175,21 @@ public class Manager : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyUp(KeyCode.F12))
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            PlayAgain();
+            if (paused)
+            {
+                uiPause.SetActive(false);
+                canPlay = true;
+                Time.timeScale = 1;
+                paused = false;
+            } else
+            {
+                uiPause.SetActive(true);
+                canPlay = false;
+                Time.timeScale = 0;
+                paused = true;
+            }
         }
     }
 
@@ -211,7 +230,7 @@ public class Manager : MonoBehaviour
     public void StartPlay()
     {
         canPlay = true;
-        uiStartScreen.SetActive(false);
+        uiStartScreenSingle.SetActive(false);
     }
 
     public void GameOver()

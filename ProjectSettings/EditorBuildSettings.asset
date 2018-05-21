@@ -6,5 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Crossy Road/Scenes/Scene1.unity
+    path: Assets/Crossy Road/Scenes/MainMenu.unity
+    guid: e7bbef68606d5314889a1b89bcb6c1f1
+  - enabled: 1
+    path: Assets/Crossy Road/Scenes/VersusMenu.unity
+    guid: 520d398299fc3ad40b9edb21a6ecf5d4
+  - enabled: 1
+    path: Assets/Crossy Road/Scenes/Loading.unity
+    guid: 802cc4d331b378b418cbb78a76c7e4fe
+  - enabled: 1
+    path: Assets/Crossy Road/Scenes/TheGame.unity
     guid: 524a8464d71dabd4fbe7ef93db185229
+  m_configObjects: {}
