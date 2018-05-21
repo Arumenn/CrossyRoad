@@ -59,7 +59,7 @@ public class MetaManager : MonoBehaviour {
             }
         } else if (SceneManager.GetActiveScene().name == "TheGame")
         {
-            if (Manager.GetInstance.paused)
+            if (Manager.GetInstance.paused || Manager.GetInstance.gameOver)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {

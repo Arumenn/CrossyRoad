@@ -10,6 +10,7 @@ public class Manager : MonoBehaviour
     [Header("Game")]
     public bool multiplayer = false;
     public bool paused = false;
+    public bool gameOver = false;
 
     [Header("GUI")]
     [Header("SinglePlayer")]
@@ -55,6 +56,8 @@ public class Manager : MonoBehaviour
 
     private PlayerStats player1Stats = new PlayerStats();
     private PlayerStats player2Stats = new PlayerStats();
+    public PlayerController player1 = null;
+    public PlayerController player2 = null;
 
     private static Manager s_Instance;
     public static Manager GetInstance
@@ -102,10 +105,8 @@ public class Manager : MonoBehaviour
         player1UIScreen.SetActive(multiplayer);
         player2UIScreen.SetActive(multiplayer);
 
-        foreach(PlayerController p in FindObjectsOfType<PlayerController>())
-        {
-            p.Setup();
-        }
+        player1.Setup();
+        player2.Setup();
     }
 
     private void UpdateHighscores()
@@ -162,17 +163,11 @@ public class Manager : MonoBehaviour
 
     private void Update()
     {
-        if (!CanPlay())
+        if (Input.GetKeyUp(KeyCode.Space))
         {
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (!gameOver)
             {
-                if (uiGameOver.active)
-                {
-                    PlayAgain();
-                } else
-                {
-                    StartPlay();
-                }
+                StartPlay();
             }
         }
         if (Input.GetKeyUp(KeyCode.Escape))
@@ -233,6 +228,38 @@ public class Manager : MonoBehaviour
         uiStartScreenSingle.SetActive(false);
     }
 
+    public bool LoseCondition(PlayerController playerWhoDied)
+    {
+        if (gameOver) { return true;  }
+        if (multiplayer)
+        {
+            bool otherPlayerIsDeadToo = false;
+            if (playerWhoDied.controllerPrefix == "P1")
+            {
+                otherPlayerIsDeadToo = player2.isDead;
+            } else
+            {
+                otherPlayerIsDeadToo = player1.isDead;
+            }
+            if (otherPlayerIsDeadToo)
+            {
+                GameOver();
+                return true;
+            } else
+            {
+                if (!playerWhoDied.isRespawning)
+                {
+                    playerWhoDied.Respawn();
+                }
+                return false;
+            }
+        } else
+        {
+            GameOver();
+            return true;
+        }
+    }
+
     public void GameOver()
     {
         canPlay = false;
@@ -261,17 +288,7 @@ public class Manager : MonoBehaviour
     {
         //Debug.Log("Game over!");
         uiGameOver.SetActive(true);
-    }
-
-    public void PlayAgain()
-    {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
+        gameOver = true;
     }
 
     public bool IsOutsideLimit(Vector3 objPos, bool isMover)

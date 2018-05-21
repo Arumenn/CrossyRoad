@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public bool isJumping = false;
     public bool parentedToObject = false;
     public bool isSoaked = false;
+    public bool isRespawning = false;
     [Header("Particles")]
     public ParticleSystem particleDeath = null;
     public ParticleSystem particleSplash = null;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip audioCheckpoint = null;
 
     private Vector3 lastCheckPointPos = Vector3.zero;
+    private bool hasCheckpointed = false;
 
     private Renderer _renderer = null;
     private bool isVisible = false;
@@ -219,6 +221,15 @@ public class PlayerController : MonoBehaviour
         {
             isDead = true;
             isIdle = false;
+            Manager.GetInstance.LoseCondition(this);
+        }
+    }
+
+    public void Respawn()
+    {
+        if (hasCheckpointed)
+        {
+            isRespawning = true;
             StartCoroutine("RespawnAtCheckpoint", 2f);
         }
     }
@@ -265,6 +276,7 @@ public class PlayerController : MonoBehaviour
 
     public void SaveCheckpoint()
     {
+        hasCheckpointed = true;
         lastCheckPointPos = transform.position;
         PlayAudio(audioCheckpoint);
         Debug.Log("Save checkpoint for " + controllerPrefix + " at " + lastCheckPointPos.ToString());
@@ -273,17 +285,21 @@ public class PlayerController : MonoBehaviour
     public IEnumerator RespawnAtCheckpoint(float waitForRespawn)
     {
         yield return new WaitForSecondsRealtime(waitForRespawn);
-        isDead = false;
-        isIdle = true;
-        isSoaked = false;
-        ParticleSystem.EmissionModule em = particleDeath.emission;
-        em.enabled = false;
-        em = particleSplash.emission;
-        em.enabled = false;
-        chick.SetActive(true);
+        if (!Manager.GetInstance.LoseCondition(this))
+        {
+            isRespawning = false;
+            isDead = false;
+            isIdle = true;
+            isSoaked = false;
+            ParticleSystem.EmissionModule em = particleDeath.emission;
+            em.enabled = false;
+            em = particleSplash.emission;
+            em.enabled = false;
+            chick.SetActive(true);
 
-        transform.position = lastCheckPointPos;
-        PlayAudio(audioCheckpoint);
-        Debug.Log("Respaw at checkpoint for " + controllerPrefix + " at " + lastCheckPointPos.ToString());
+            transform.position = lastCheckPointPos;
+            PlayAudio(audioCheckpoint);
+            Debug.Log("Respaw at checkpoint for " + controllerPrefix + " at " + lastCheckPointPos.ToString());
+        }
     }
 }
