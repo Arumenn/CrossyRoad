@@ -12,6 +12,10 @@ public class MetaManager : MonoBehaviour {
     public string nomPlayer1 = "J1";
     public string nomPlayer2 = "J2";
 
+    [Header("Audio Stuff")]
+    public AudioClip audioCounter = null;
+    public AudioClip audioStart = null;
+
     private static MetaManager s_Instance;
     public static MetaManager GetInstance
     {
@@ -130,6 +134,11 @@ public class MetaManager : MonoBehaviour {
     {
         Debug.Log("Going to MainMenu...");
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void PlayAudio(AudioClip clip)
+    {
+        this.GetComponent<AudioSource>().PlayOneShot(clip);
     }
 
     private void UpdatePlayerNames()

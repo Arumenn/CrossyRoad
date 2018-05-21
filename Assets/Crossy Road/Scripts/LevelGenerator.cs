@@ -19,7 +19,7 @@ public class LevelGenerator : MonoBehaviour
 
     public void SetupNewLevel()
     {
-        Manager.GetInstance.isNight = (Random.Range(0, 3) == 0);
+        //Manager.GetInstance.isNight = (Random.Range(0, 3) == 0);
         Manager.GetInstance.sun.gameObject.SetActive(!Manager.GetInstance.isNight);
         Manager.GetInstance.moon.gameObject.SetActive(Manager.GetInstance.isNight);
     }

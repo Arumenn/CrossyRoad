@@ -40,8 +40,10 @@ public class Manager : MonoBehaviour
     public Camera _cameraP2UI = null;
     [Header("Common UI")]
     public GameObject uiStartScreenSingle = null;
+    public GameObject uiStartScreenMulti = null;
     public GameObject uiGameOver = null;
     public GameObject uiPause = null;
+    public Text uiCompteur = null;
     [Header("Level")]
     public LevelGenerator levelGenerator = null;
     public int levelCount = 50;
@@ -53,6 +55,7 @@ public class Manager : MonoBehaviour
     [HideInInspector] public bool isNight = false;
 
     private bool canPlay = false;
+    private float currentCountdown;
 
     private PlayerStats player1Stats = new PlayerStats();
     private PlayerStats player2Stats = new PlayerStats();
@@ -75,6 +78,9 @@ public class Manager : MonoBehaviour
 
     public void Setup()
     {
+        uiStartScreenSingle.SetActive(!multiplayer);
+        uiStartScreenMulti.SetActive(multiplayer);
+
         if (multiplayer)
         {
             player1Stats.highscoreDistance = PlayerPrefs.GetInt("HighscoreDistance_P1", 0);
@@ -107,6 +113,28 @@ public class Manager : MonoBehaviour
 
         player1.Setup();
         player2.Setup();
+
+        if (multiplayer)
+        {
+            StartCoroutine(CountDownToStart(5f));
+        }
+    }
+
+    IEnumerator CountDownToStart(float seconds)
+    {
+        Debug.Log("Countdown started");
+        currentCountdown = seconds;
+        while (currentCountdown > 0)
+        {
+            yield return new WaitForSecondsRealtime(1f);
+            currentCountdown--;
+            uiCompteur.text = ((int) currentCountdown).ToString();
+            if (currentCountdown > 0)
+            {
+                MetaManager.GetInstance.PlayAudio(MetaManager.GetInstance.audioCounter);
+            }
+        }
+        StartPlay();
     }
 
     private void UpdateHighscores()
@@ -226,6 +254,8 @@ public class Manager : MonoBehaviour
     {
         canPlay = true;
         uiStartScreenSingle.SetActive(false);
+        uiStartScreenMulti.SetActive(false);
+        MetaManager.GetInstance.PlayAudio(MetaManager.GetInstance.audioStart);
     }
 
     public bool LoseCondition(PlayerController playerWhoDied)
@@ -269,7 +299,23 @@ public class Manager : MonoBehaviour
         //saves highscore if necessary
         if (multiplayer)
         {
-
+            //HighscoreDistance_P1
+            if (player1Stats.currentDistance > player1Stats.highscoreDistance)
+            {
+                PlayerPrefs.SetInt("HighscoreDistance_P1", player1Stats.currentDistance);
+            }
+            if (player1Stats.currentCoins > player1Stats.highscoreCoins)
+            {
+                PlayerPrefs.SetInt("HighscoreCoins_P1", player1Stats.currentCoins);
+            }
+            if (player2Stats.currentDistance > player2Stats.highscoreDistance)
+            {
+                PlayerPrefs.SetInt("HighscoreDistance_P2", player2Stats.currentDistance);
+            }
+            if (player2Stats.currentCoins > player2Stats.highscoreCoins)
+            {
+                PlayerPrefs.SetInt("HighscoreCoins_P2", player2Stats.currentCoins);
+            }
         } else
         {
 

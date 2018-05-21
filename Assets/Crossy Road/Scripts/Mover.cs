@@ -35,7 +35,7 @@ public class Mover : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
-            Debug.Log("Enter");
+            //Debug.Log("Enter");
             if (parentOnTrigger) {
                 //Debug.Log("Enter: Parent to me");
                 Transform spot = GetClosestSpot(other.transform);

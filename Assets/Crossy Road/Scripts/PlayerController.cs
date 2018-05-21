@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject chick = null;
+    public GameObject nameplate = null;
     [Header("Movement")]
     public string controllerPrefix = "P1";
     public float moveDistance = 1f;
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
     private bool isBuffed = false;
 
     private void Start() {
-        _renderer = chick.GetComponent<Renderer>();
+        _renderer = chick.GetComponent<Renderer>();   
     }
 
     public void Setup()
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
             {
                 _renderer.material.SetColor("_Color", Color.red);
                 Debug.Log(MetaManager.GetInstance.nomPlayer2);
+                nameplate.GetComponent<TextMesh>().text = MetaManager.GetInstance.nomPlayer2;
             } else
             {
                 this.gameObject.SetActive(false);
@@ -60,6 +62,10 @@ public class PlayerController : MonoBehaviour
             if (Manager.GetInstance.multiplayer)
             {
                 Debug.Log(MetaManager.GetInstance.nomPlayer1);
+                nameplate.GetComponent<TextMesh>().text = MetaManager.GetInstance.nomPlayer1;
+            } else
+            {
+                nameplate.SetActive(false);
             }
         }
         lastCheckPointPos = transform.position;
@@ -73,8 +79,13 @@ public class PlayerController : MonoBehaviour
         {
             CanIdle();
             CanMove();
+        } else
+        {
+            if (!isDead)
+            {
+                GotHit();
+            }
         }
-        IsVisible();
     }
 
     private bool IsOutsideLimit()
@@ -189,7 +200,7 @@ public class PlayerController : MonoBehaviour
 
         if (!_renderer.isVisible && isVisible) {
             //Debug.Log("Player is off screen. Dies");
-            //GotHit();
+            GotHit();
         }
     }
 
